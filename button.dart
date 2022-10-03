@@ -2,20 +2,19 @@ import 'package:flutter/material.dart';
 
 class Button extends StatelessWidget {
   final String s;
+  final VoidCallback press;
 
-  Button(this.s);
+  Button(this.s, this.press);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 40,
-      width: 150,
-      decoration: BoxDecoration(
-        color: Colors.purple[900],
-        borderRadius: BorderRadius.circular(10.0),
-      ),
+      margin: EdgeInsets.all(5.0),
       child: ElevatedButton(
-        onPressed: null,
+        onPressed: press,
+        style: ButtonStyle(
+          backgroundColor: MaterialStateProperty.all(Colors.purple[800]),
+        ),
         child: Text(
           s,
           style: TextStyle(
