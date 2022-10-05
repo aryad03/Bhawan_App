@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
-import 'TopBar.dart';
-import 'ProfilePage.dart';
+import 'package:flutter/rendering.dart';
+import 'utils/constants.dart';
+import 'screens/clientLogin.dart';
 
-void main() {
-  runApp( MaterialApp(
-    home: Home(),
-  ));
+void main() => runApp(MyApp());
 
-}
-
-class Home extends StatelessWidget {
-  const Home({Key? key}) : super(key: key);
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return TopBar();
+    return MediaQuery(
+      data: MediaQueryData(),
+      child: MaterialApp(
+        home: LoginPage(),
+      ),
+      );
   }
 }
