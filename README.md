@@ -1,11 +1,6 @@
-<<<<<<< HEAD
 # Bhawan_App
 Contributors :
 Ayush Patel | Arya Deshmukh | Navin Kumar | Akanksha Swati | Rishika
-=======
-# bhawan_app
-
-This is our course project for the subject CSN291.
 
 ## Getting Started
 
@@ -19,4 +14,6 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
->>>>>>> 133cea4 (Login & Sign Up Page)
+
+107f466 (Home Page, Drawer, Profile Page)
+133cea4 (Login & Sign Up Page)
