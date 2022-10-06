@@ -1,8 +1,5 @@
 // import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import '/utils/constants.dart';
-import '../utils/button.dart';
-import '/screens/clientRegistration.dart';
 import 'homePage.dart';
 
 class LoginPage extends StatefulWidget {
@@ -17,17 +14,17 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        primarySwatch: kPrimaryColor,
+        primarySwatch: Colors.purple,
       ),
       home: Scaffold(
         resizeToAvoidBottomInset : false,
-        backgroundColor: kBackgroundColor,
+        backgroundColor: Colors.white,
         appBar: AppBar(
           title: const Text(
             'Bhawan Apps',
           ),
           centerTitle: true,
-          backgroundColor: kPrimaryColor,
+          backgroundColor: Colors.purple,
         ),
         body: SingleChildScrollView(
           physics: NeverScrollableScrollPhysics(),
