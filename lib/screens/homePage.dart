@@ -1,4 +1,5 @@
 import 'package:bhawan_app/screens/laundryPage.dart';
+import 'package:bhawan_app/screens/tabs.dart';
 import 'package:flutter/material.dart';
 import '../utils/banner.dart';
 import 'profilePage.dart';
@@ -94,7 +95,7 @@ class TopBar extends StatelessWidget {
                       leading: Icon(Icons.report_problem),
                       title: Text('Complain'),
                       onTap: () {
-                        Navigator.pop(context);
+                        Navigator.of(context).push(MaterialPageRoute(builder: (context)=>TabsScreen()));
                       }
                   ),
                   ListTile(

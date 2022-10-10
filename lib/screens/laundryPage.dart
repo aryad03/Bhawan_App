@@ -38,6 +38,9 @@ class _TemplateStateUser extends State<TemplateUser> {
       body: _children[currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: currentIndex,
+        backgroundColor: Colors.purple,
+        selectedItemColor: Colors.amber,
+        unselectedItemColor: Colors.white,
         type: BottomNavigationBarType.fixed,
         // selectedItemColor: Colors.purple,
         items: <BottomNavigationBarItem>[
