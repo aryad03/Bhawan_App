@@ -30,31 +30,35 @@ class _TemplateStateUser extends State<TemplateUser> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Bhawan App",),
-        backgroundColor: Colors.purple,
+    return MaterialApp(
+      theme: ThemeData(
+        primarySwatch: Colors.purple,
       ),
-      body: _children[currentIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: currentIndex,
-        backgroundColor: Colors.purple,
-        selectedItemColor: Colors.amber,
-        unselectedItemColor: Colors.white,
-        type: BottomNavigationBarType.fixed,
-        // selectedItemColor: Colors.purple,
-        items: <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.check),
-            label: 'Status',
-          ),
-        ],
-        onTap: onTab,
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text("Bhawan App",),
+            backgroundColor: Colors.purple,
+        ),
+        body: _children[currentIndex],
+        bottomNavigationBar: BottomNavigationBar(
+          currentIndex: currentIndex,
+          backgroundColor: Colors.purple,
+          selectedItemColor: Colors.amber,
+          unselectedItemColor: Colors.white,
+          type: BottomNavigationBarType.fixed,
+          // selectedItemColor: Colors.purple,
+          items: <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: 'Home',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.check),
+              label: 'Status',
+            ),
+          ],
+          onTap: onTab,
+        ),
       ),
     );
   }

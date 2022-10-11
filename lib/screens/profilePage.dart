@@ -15,14 +15,14 @@ class ProfilePage extends StatelessWidget {
             child: Column(
               children: [
                 Container(
-                  padding: EdgeInsets.only(left: 15, top: 7),
+                  padding: EdgeInsets.all(10),
                   child: Text("My Profile ",
                     style: TextStyle(
-                        fontSize: 21,
+                        fontSize: 20,
                         fontWeight: FontWeight.bold
                     ),
                   ),
-                  height: 44,
+                  height: 52,
                   width: MediaQuery.of(context).size.width,
                   decoration: BoxDecoration(
                     color: Colors.grey,

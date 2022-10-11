@@ -24,7 +24,7 @@ class _registerComplaintState extends State<registerComplaint> {
       theme: ThemeData(
         primarySwatch: Colors.purple,
       ),
-      title: 'Welcome to Flutter',
+      title: 'Bhawan App',
       home: Scaffold(
         resizeToAvoidBottomInset: false,
         body: SingleChildScrollView(
@@ -33,7 +33,7 @@ class _registerComplaintState extends State<registerComplaint> {
               Container(
                 color: Color.fromARGB(255, 177, 175, 175),
                 padding: EdgeInsets.all(10),
-                height: 50,
+                height: 52,
                 width: 400,
                 child: SizedBox(
                   height: 56.0,
@@ -41,6 +41,9 @@ class _registerComplaintState extends State<registerComplaint> {
                       style:
                       TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
                 ),
+              ),
+              SizedBox(
+                height: 15,
               ),
               SingleChildScrollView(
                 child: Column(
@@ -55,7 +58,7 @@ class _registerComplaintState extends State<registerComplaint> {
                       child: Text(
                         textAlign: TextAlign.center,
                         "Register your complaint here",
-                        style: TextStyle(fontSize: 22, color: Colors.black),
+                        style: TextStyle(fontSize: 20, color: Colors.black),
                       ),
                     ),
                     Container(
@@ -104,7 +107,8 @@ class _registerComplaintState extends State<registerComplaint> {
                           SizedBox(
                             height: 5,
                           ),
-                          Center(
+                          Align(
+                            alignment: Alignment.centerLeft,
                             child: DropdownButtonHideUnderline(
                               child: DropdownButton2(
                                 hint: Text(

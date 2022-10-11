@@ -22,7 +22,7 @@ class _TabsScreenState extends State<TabsScreen> {
       'page': PastComplaints(),
     },
   ];
-  int selectedPageIndex = 0;
+  int selectedPageIndex = 1;
 
   void selectPage(int index) {
     setState(() {
@@ -34,7 +34,7 @@ class _TabsScreenState extends State<TabsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Complaint system'),
+        title: Text('Bhawan App'),
         backgroundColor: Colors.purple,
       ),
       body: pages[selectedPageIndex]['page'],

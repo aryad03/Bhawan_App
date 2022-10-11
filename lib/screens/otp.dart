@@ -28,7 +28,7 @@ class _otpState extends State<otp> {
         primarySwatch: kPrimaryColor,
       ),
       home: Scaffold(
-        resizeToAvoidBottomInset : false,
+        // resizeToAvoidBottomInset : false,
         backgroundColor: kBackgroundColor,
         appBar: AppBar(
           title: Text(

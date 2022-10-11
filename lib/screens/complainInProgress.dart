@@ -15,7 +15,7 @@ class ComplaintsInProgress extends StatelessWidget {
             Container(
               color: Color.fromARGB(255, 177, 175, 175),
               padding: EdgeInsets.all(10),
-              height: 50,
+              height: 52,
               width: 400,
               child: SizedBox(
                 height: 56.0,
@@ -25,7 +25,7 @@ class ComplaintsInProgress extends StatelessWidget {
               ),
             ),
             Container(
-              height: 30,
+              height: 15,
               width: 400,
               child: SizedBox(),
             ),
@@ -33,11 +33,11 @@ class ComplaintsInProgress extends StatelessWidget {
               alignment: Alignment.center,
               child: Text(
                 "Complaints in progress",
-                style: TextStyle(fontSize: 22, color: Colors.black),
+                style: TextStyle(fontSize: 20, color: Colors.black),
               ),
             ),
             Container(
-              height: 30,
+              height: 15,
               width: 400,
               child: SizedBox(),
             ),
