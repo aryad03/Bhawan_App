@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:bhawan_app/screens/homePage.dart';
 
 class ProfilePage extends StatelessWidget {
   ProfilePage({Key? key}) : super(key: key);
@@ -7,8 +8,18 @@ class ProfilePage extends StatelessWidget {
     return Container(
         child: Scaffold(
           appBar: AppBar(
-            title: Text("Bhawan App",),
             backgroundColor: Colors.purple,
+            leading: Builder(
+              builder: (BuildContext context) {
+                return IconButton(
+                  icon: const Icon(Icons.arrow_back),
+                  onPressed: () { Navigator.of(context).pop(ProfilePage());
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context)=> HomePage()));
+                  },
+                );
+              },
+            ),
+            title: Text("Bhawan App"),
           ),
           body:
           Container(

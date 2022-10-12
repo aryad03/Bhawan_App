@@ -5,7 +5,7 @@ import '../utils/banner.dart';
 import 'profilePage.dart';
 import 'package:flutter/src/widgets/navigator.dart';
 
-void main3() => runApp(HomePage());
+ main3() => runApp(HomePage());
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);

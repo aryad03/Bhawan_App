@@ -1,7 +1,7 @@
-import 'package:bhawan_app/main.dart';
 import 'package:bhawan_app/screens/pastComplaint.dart';
 import 'package:bhawan_app/screens/registerComplaint.dart';
 import 'package:flutter/material.dart';
+import 'package:bhawan_app/screens/homePage.dart';
 
 import 'complainInProgress.dart';
 
@@ -32,11 +32,19 @@ class _TabsScreenState extends State<TabsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Bhawan App'),
-        backgroundColor: Colors.purple,
+    return Scaffold(appBar: AppBar(backgroundColor: Colors.purple,
+      leading: Builder(
+        builder: (BuildContext context) {
+          return IconButton(
+            icon: const Icon(Icons.arrow_back),
+            onPressed: () { Navigator.of(context).pop(context);
+            Navigator.of(context).push(MaterialPageRoute(builder: (context)=> HomePage()));
+            },
+          );
+        },
       ),
+      title: Text("Bhawan App"),
+    ),
       body: pages[selectedPageIndex]['page'],
       bottomNavigationBar: BottomNavigationBar(
         onTap: selectPage,

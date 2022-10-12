@@ -1,6 +1,5 @@
+import 'package:bhawan_app/screens/homePage.dart';
 import 'package:flutter/material.dart';
-
-import '../utils/appBar.dart';
 import 'laundryHome.dart';
 import 'laundryStatus.dart';
 
@@ -36,8 +35,17 @@ class _TemplateStateUser extends State<TemplateUser> {
       ),
       home: Scaffold(
         appBar: AppBar(
-          title: Text("Bhawan App",),
-            backgroundColor: Colors.purple,
+        leading: Builder(
+        builder: (BuildContext context) {
+        return IconButton(
+        icon: const Icon(Icons.arrow_back),
+        onPressed: () { Navigator.of(context).pop(TemplateUser());
+          Navigator.of(context).push(MaterialPageRoute(builder: (context)=> HomePage()));
+              },
+            );
+          },
+        ),
+        title: Text("Bhawan App"),
         ),
         body: _children[currentIndex],
         bottomNavigationBar: BottomNavigationBar(

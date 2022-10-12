@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
+
 import '../utils/button.dart';
 
 class registerComplaint extends StatefulWidget {
@@ -24,8 +25,8 @@ class _registerComplaintState extends State<registerComplaint> {
       theme: ThemeData(
         primarySwatch: Colors.purple,
       ),
-      title: 'Bhawan App',
       home: Scaffold(
+
         resizeToAvoidBottomInset: false,
         body: SingleChildScrollView(
           child: Column(

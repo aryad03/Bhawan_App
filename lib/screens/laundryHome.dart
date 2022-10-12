@@ -14,36 +14,45 @@ class LaundryUserPage extends StatefulWidget {
 class _LaundryUserPageState extends State<LaundryUserPage> {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      // crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        LaundryBar(),
-        SizedBox(height:55.0),
-        Center(
-          child: Text(
-            textAlign: TextAlign.center,
-            'Get your clothes cleaned',
-            style: TextStyle(
-              fontSize: 25.0,
-              fontWeight: FontWeight.w600,
+    return MaterialApp(
+      theme: ThemeData(
+        primarySwatch: Colors.purple
+      ),
+      home: Scaffold(
+          body: SingleChildScrollView(
+             child: Column(
+                // crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  LaundryBar(),
+                  SizedBox(height:55.0),
+                  Center(
+                    child: Text(
+                      textAlign: TextAlign.center,
+                      'Get your clothes cleaned',
+                      style: TextStyle(
+                        fontSize: 25.0,
+                        fontWeight: FontWeight.w600,
 
-            ),
-          ),
-        ),
-        SizedBox(height: 30,),
-        RoomNumber(),
-        SizedBox(height: 17.0,),
-        RoomNumberInput(),
-        SizedBox(height: 23.0,),
-        Row(children: [
-          NoOfClothes(),
-          SizedBox(width: 15.0,),
-          NoOfClothesInput(),
-        ]
-        ),
-        SizedBox(height: 23.0,),
-        Button('Send Request',() {}),
-      ],
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 30,),
+                  RoomNumber(),
+                  SizedBox(height: 17.0,),
+                  RoomNumberInput(),
+                  SizedBox(height: 23.0,),
+                  Row(children: [
+                    NoOfClothes(),
+                    SizedBox(width: 15.0,),
+                    NoOfClothesInput(),
+                  ]
+                  ),
+                  SizedBox(height: 23.0,),
+                  Button('Send Request',() {}),
+                ],
+              )
+          )
+      ),
     );
   }
 }
