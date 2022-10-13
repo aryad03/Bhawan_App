@@ -19,24 +19,28 @@ class _LaundryUserPageState extends State<LaundryUserPage> {
         primarySwatch: Colors.purple
       ),
       home: Scaffold(
+        resizeToAvoidBottomInset: false,
           body: SingleChildScrollView(
              child: Column(
-                // crossAxisAlignment: CrossAxisAlignment.stretch,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  LaundryBar(),
-                  SizedBox(height:55.0),
+                  SingleChildScrollView(
+                 child: Column(
+                 children: [
+                 LaundryBar(),
+                  SizedBox(height:25.0),
                   Center(
                     child: Text(
                       textAlign: TextAlign.center,
                       'Get your clothes cleaned',
                       style: TextStyle(
-                        fontSize: 25.0,
-                        fontWeight: FontWeight.w600,
+                        fontSize: 20.0,
+                        fontWeight: FontWeight.bold,
 
                       ),
                     ),
                   ),
-                  SizedBox(height: 30,),
+                  SizedBox(height: 25,),
                   RoomNumber(),
                   SizedBox(height: 17.0,),
                   RoomNumberInput(),
@@ -52,6 +56,9 @@ class _LaundryUserPageState extends State<LaundryUserPage> {
                 ],
               )
           )
+        ]
+      ),
+    ),
       ),
     );
   }
