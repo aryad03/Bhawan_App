@@ -43,11 +43,11 @@ class TopBar extends StatelessWidget {
                 children: [
                   DrawerHeader(
                     child: UserAccountsDrawerHeader(
-                      accountName: Text('Akanksha Swati'),
-                      accountEmail: Text('a_swati@cs.iitr.ac.in'),
+                      accountName: Text('User Name'),
+                      accountEmail: Text('user@iitr.ac.in'),
                       currentAccountPicture: CircleAvatar(
                         backgroundColor: Color.fromARGB(43, 140, 161, 1),
-                        foregroundImage: AssetImage('images/Me.jpg'),
+                        foregroundImage: AssetImage('images/default.jpg'),
                       ),
                       currentAccountPictureSize: Size.square(50),
                       decoration: BoxDecoration(color: Colors.purple,),

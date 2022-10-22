@@ -45,7 +45,7 @@ class ProfilePage extends StatelessWidget {
                     Container(
                         decoration: BoxDecoration(
                             shape: BoxShape.circle,
-                            image: DecorationImage(image: AssetImage("images/Me.jpg"))
+                            image: DecorationImage(image: AssetImage("images/default.jpg"))
                         ), height: 200
                     ),
                     SizedBox(height: 20),
@@ -77,9 +77,9 @@ class ProfilePage extends StatelessWidget {
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text("Akanksha Swati", style: TextStyle(fontSize: 13),),
+                                Text("User Name", style: TextStyle(fontSize: 13),),
                                 SizedBox(height: 20),
-                                Text("a_swati@cs.iitr.ac.in", style: TextStyle(fontSize: 13),),
+                                Text("user@iitr.ac.in", style: TextStyle(fontSize: 13),),
                                 SizedBox(height: 20),
                                 Text("21114007", style: TextStyle(fontSize: 13),),
                                 SizedBox(height: 20),
