@@ -26,7 +26,6 @@ class _registerComplaintState extends State<registerComplaint> {
         primarySwatch: Colors.purple,
       ),
       home: Scaffold(
-
         resizeToAvoidBottomInset: false,
         body: SingleChildScrollView(
           child: Column(
@@ -40,7 +39,7 @@ class _registerComplaintState extends State<registerComplaint> {
                   height: 56.0,
                   child: Text('Complaint Management',
                       style:
-                      TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
                 ),
               ),
               SizedBox(
@@ -73,47 +72,47 @@ class _registerComplaintState extends State<registerComplaint> {
                       alignment: Alignment.topLeft,
                       child: Column(
                         children: [
-                          Align(
-                            alignment: Alignment.centerLeft,
-                            child: Text("Your Name :",
-                                style: TextStyle(fontSize: 20)),
+                          Container(
+                            padding: EdgeInsets.all(10.0),
+                            child: TextField(
+                              decoration: InputDecoration(
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                labelText: 'Your Name',
+                                hintText: 'Enter your name here',
+                              ),
+                            ),
                           ),
-                          TextField(
-                            decoration: InputDecoration(
-                                hintText: 'Your Name ',
-                                labelStyle: new TextStyle(
-                                    color: const Color(0xFF424242))),
-                          ),
-                          SizedBox(
-                            height: 20,
-                          ),
-                          Align(
-                            alignment: Alignment.centerLeft,
-                            child: Text("Room Number :",
-                                style: TextStyle(fontSize: 20)),
-                          ),
-                          TextField(
-                            decoration: InputDecoration(
-                              hintText: 'Room Number',
+                          Container(
+                            padding: EdgeInsets.all(10.0),
+                            child: TextField(
+                              decoration: InputDecoration(
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                labelText: 'Room Number',
+                                hintText: 'Enter your room number here',
+                              ),
                             ),
                           ),
                           SizedBox(
-                            height: 20,
+                            height: 10,
                           ),
                           Align(
                             alignment: Alignment.centerLeft,
-                            child: Text("Complaint :",
+                            child: Text("    Complaint:",
                                 style: TextStyle(fontSize: 20)),
                           ),
                           SizedBox(
                             height: 5,
                           ),
                           Align(
-                            alignment: Alignment.centerLeft,
+                            alignment: Alignment.center,
                             child: DropdownButtonHideUnderline(
                               child: DropdownButton2(
                                 hint: Text(
-                                  'Select Item',
+                                  '     Select Item',
                                   style: TextStyle(
                                     fontSize: 16,
                                     color: Theme.of(context).hintColor,
@@ -121,14 +120,14 @@ class _registerComplaintState extends State<registerComplaint> {
                                 ),
                                 items: items
                                     .map((item) => DropdownMenuItem<String>(
-                                  value: item,
-                                  child: Text(
-                                    item,
-                                    style: const TextStyle(
-                                      fontSize: 14,
-                                    ),
-                                  ),
-                                ))
+                                          value: item,
+                                          child: Text(
+                                            item,
+                                            style: const TextStyle(
+                                              fontSize: 14,
+                                            ),
+                                          ),
+                                        ))
                                     .toList(),
                                 value: selectedValue,
                                 onChanged: (value) {
@@ -137,7 +136,7 @@ class _registerComplaintState extends State<registerComplaint> {
                                   });
                                 },
                                 buttonHeight: 40,
-                                buttonWidth: 350,
+                                buttonWidth: 310,
                                 itemHeight: 40,
                               ),
                             ),
@@ -146,24 +145,23 @@ class _registerComplaintState extends State<registerComplaint> {
                             color: Color.fromARGB(255, 119, 117, 117),
                             height: 5,
                             thickness: 1,
-                            indent: 0,
-                            endIndent: 0,
+                            indent: 18,
+                            endIndent: 10,
                           ),
                           SizedBox(
                             height: 20,
                           ),
-                          Align(
-                            alignment: Alignment.centerLeft,
-                            child: Text("Describe :",
-                                style: TextStyle(fontSize: 20)),
-                          ),
-                          TextField(
-                            scrollPadding: EdgeInsets.only(bottom: 40),
-                            minLines: 1,
-                            maxLines:
-                            3, // allow user to enter 3 line in textfield
-                            keyboardType: TextInputType
-                                .multiline, // user keyboard will have a button to move cursor to next line
+                          Container(
+                            padding: EdgeInsets.all(10.0),
+                            child: TextField(
+                              decoration: InputDecoration(
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                labelText: 'Description',
+                                hintText: 'Description of complaint',
+                              ),
+                            ),
                           ),
                           SizedBox(
                             height: 20,
