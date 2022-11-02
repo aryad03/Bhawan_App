@@ -12,19 +12,17 @@ class LaundryBar extends StatelessWidget {
         // margin: EdgeInsets.fromLTRB(, , 5.0, 0.0),
 
         color: Colors.grey[400],
-        child: Row(
-            children: [
-              SizedBox(height: 47.0,width: 30.0),
+        padding: EdgeInsets.all(10),
+        height: 52,
+        child:
               Text(
                 'Laundry System',
                 style: TextStyle(
-                  fontSize: 25.0,
-                  // fontWeight: FontWeight.bold,
-                  fontWeight: FontWeight.w500,
+                  fontSize: 20.0,
+                  fontWeight: FontWeight.bold,
                 ),
-              ),]
+              ),
         ),
-      ),
       ],
     );
   }

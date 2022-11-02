@@ -4,7 +4,7 @@ import '/utils/constants.dart';
 import '../utils/button.dart';
 import '/screens/clientRegistration.dart';
 import 'homePage.dart';
-
+void LogIn()=> runApp(LoginPage());
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
 

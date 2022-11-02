@@ -99,7 +99,9 @@ class _RoomNumberInputState extends State<RoomNumberInput> {
       child: Container(
         child: TextField(
           decoration: InputDecoration(
-              border: OutlineInputBorder(),
+              border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10)
+              ),
               label: Text('Enter Room Number')
           ),
         ),

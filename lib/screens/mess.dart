@@ -1,10 +1,8 @@
-import 'package:bhawan_app/screens/mess.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'utils/constants.dart';
-import 'screens/clientLogin.dart';
+import 'package:bhawan_app/screens/homePage.dart';
 
-void main() => runApp(MyApp());
+Mess() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -12,18 +10,30 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Welcome to Flutter',
-      home: Scaffold(
+      home: Scaffold(appBar: AppBar(backgroundColor: Colors.purple,
+        leading: Builder(
+          builder: (BuildContext context) {
+            return IconButton(
+              icon: const Icon(Icons.arrow_back),
+              onPressed: () { Navigator.of(context).pop(context);
+              Navigator.of(context).push(MaterialPageRoute(builder: (context)=> HomePage()));
+              },
+            );
+          },
+        ),
+        title: Text("Bhawan App"),
+      ),
         body: Column(
           children: [
             Container(
               color: Color.fromARGB(255, 177, 175, 175),
               padding: EdgeInsets.all(10),
               height: 52,
-              width: 400,
+              width: MediaQuery.of(context).size.width,
               child: SizedBox(
                 height: 56.0,
-                child: Text('Information',
+
+                child: Text('Mess Menu',
                     style:
                         TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
               ),
@@ -36,8 +46,12 @@ class MyApp extends StatelessWidget {
             Container(
               alignment: Alignment.center,
               child: Text(
-                "Mess Menu",
-                style: TextStyle(fontSize: 20, color: Colors.black),
+                "7 Nov'22 to 13 Nov'22",
+                style: TextStyle(fontSize: 18,
+                    color: Colors.black,
+                    decoration: TextDecoration.underline,
+                    decorationStyle: TextDecorationStyle.double
+                ),
               ),
             ),
             Container(

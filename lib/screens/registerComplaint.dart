@@ -34,7 +34,7 @@ class _registerComplaintState extends State<registerComplaint> {
                 color: Color.fromARGB(255, 177, 175, 175),
                 padding: EdgeInsets.all(10),
                 height: 52,
-                width: 400,
+                width: MediaQuery.of(context).size.width,
                 child: SizedBox(
                   height: 56.0,
                   child: Text('Complaint Management',
@@ -50,7 +50,7 @@ class _registerComplaintState extends State<registerComplaint> {
                   children: <Widget>[
                     Container(
                       height: 15,
-                      width: 400,
+                      width: MediaQuery.of(context).size.width,
                       child: SizedBox(),
                     ),
                     Container(
@@ -63,17 +63,17 @@ class _registerComplaintState extends State<registerComplaint> {
                     ),
                     Container(
                       height: 15,
-                      width: 400,
+                      width: MediaQuery.of(context).size.width,
                       child: SizedBox(),
                     ),
                     Container(
-                      padding: EdgeInsets.all(20),
-                      width: 400,
+                      padding: EdgeInsets.all(15),
+                      width: MediaQuery.of(context).size.width,
                       alignment: Alignment.topLeft,
                       child: Column(
                         children: [
                           Container(
-                            padding: EdgeInsets.all(10.0),
+                            padding: EdgeInsets.all(5.0),
                             child: TextField(
                               decoration: InputDecoration(
                                 border: OutlineInputBorder(
@@ -84,8 +84,11 @@ class _registerComplaintState extends State<registerComplaint> {
                               ),
                             ),
                           ),
+                          SizedBox(
+                            height: 10,
+                          ),
                           Container(
-                            padding: EdgeInsets.all(10.0),
+                            padding: EdgeInsets.all(5.0),
                             child: TextField(
                               decoration: InputDecoration(
                                 border: OutlineInputBorder(
@@ -99,60 +102,64 @@ class _registerComplaintState extends State<registerComplaint> {
                           SizedBox(
                             height: 10,
                           ),
-                          Align(
-                            alignment: Alignment.centerLeft,
-                            child: Text("    Complaint:",
-                                style: TextStyle(fontSize: 20)),
-                          ),
-                          SizedBox(
-                            height: 5,
-                          ),
-                          Align(
-                            alignment: Alignment.center,
-                            child: DropdownButtonHideUnderline(
-                              child: DropdownButton2(
-                                hint: Text(
-                                  '     Select Item',
-                                  style: TextStyle(
-                                    fontSize: 16,
-                                    color: Theme.of(context).hintColor,
-                                  ),
+                          Container(
+                            padding: EdgeInsets.all(5.0),
+                            child: DropdownButtonFormField2(
+                              decoration: InputDecoration(
+                                //Add isDense true and zero Padding.
+                                //Add Horizontal padding using buttonPadding and Vertical padding by increasing buttonHeight instead of add Padding here so that The whole TextField Button become clickable, and also the dropdown menu open under The whole TextField Button.
+                                isDense: true,
+                                contentPadding: EdgeInsets.zero,
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10),
                                 ),
-                                items: items
-                                    .map((item) => DropdownMenuItem<String>(
-                                          value: item,
-                                          child: Text(
-                                            item,
-                                            style: const TextStyle(
-                                              fontSize: 14,
-                                            ),
-                                          ),
-                                        ))
-                                    .toList(),
-                                value: selectedValue,
-                                onChanged: (value) {
-                                  setState(() {
-                                    selectedValue = value as String;
-                                  });
-                                },
-                                buttonHeight: 40,
-                                buttonWidth: 310,
-                                itemHeight: 40,
+                                //Add more decoration as you want here
+                                //Add label If you want but add hint outside the decoration to be aligned in the button perfectly.
                               ),
+                              isExpanded: true,
+                              hint: const Text(
+                                'Select the type of complaint',
+                              ),
+                              icon: const Icon(
+                                Icons.arrow_drop_down,
+                                color: Colors.black45,
+                              ),
+                              iconSize: 30,
+                              buttonHeight: 60,
+                              buttonPadding: const EdgeInsets.only(left: 15, right: 15),
+                              dropdownDecoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              items: items
+                                  .map((item) =>
+                                  DropdownMenuItem<String>(
+                                    value: item,
+                                    child: Text(
+                                      item,
+                                      style: const TextStyle(
+                                        fontSize: 14,
+                                      ),
+                                    ),
+                                  ))
+                                  .toList(),
+                              validator: (value) {
+                                if (value == null) {
+                                  return 'Please select the type of complaint.';
+                                }
+                              },
+                              onChanged: (value) {
+                                //Do something when changing the item if you want.
+                              },
+                              onSaved: (value) {
+                                selectedValue = value.toString();
+                              },
                             ),
                           ),
-                          Divider(
-                            color: Color.fromARGB(255, 119, 117, 117),
-                            height: 5,
-                            thickness: 1,
-                            indent: 18,
-                            endIndent: 10,
-                          ),
                           SizedBox(
-                            height: 20,
+                            height: 10,
                           ),
                           Container(
-                            padding: EdgeInsets.all(10.0),
+                            padding: EdgeInsets.all(5),
                             child: TextField(
                               decoration: InputDecoration(
                                 border: OutlineInputBorder(

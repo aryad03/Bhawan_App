@@ -7,7 +7,8 @@ import 'otp.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
 
 var bhawan = ['Rajiv Bhawan', 'Rajendra Bhawan', 'Cautley Bhawan', 'Kasturba Bhawan', 'Jawhar Bhawan', 'Ravindra Bhawan', 'Sarojani Bhawan', 'Govind Bhawan', 'Ganga Bhawan', 'RadhaKrishn Bhawan', 'VigyanKunj'];
-
+String? selectedValue;
+final _formKey = GlobalKey<FormState>();
 void main1() => runApp(RegistrationPage());
 
 class RegistrationPage extends StatefulWidget {
@@ -107,76 +108,58 @@ class _RegistrationPageState extends State<RegistrationPage> {
                           ),
                         ),
                         Container(
-                          padding: EdgeInsets.all(13.0),
-                          // width: 345,
-                          // height: 62,
-                          decoration: ShapeDecoration(
-                            shape: RoundedRectangleBorder(
-                              side: BorderSide(
-                                width: 1.0,
-                                style: BorderStyle.solid,
+                          padding: EdgeInsets.all(15.0),
+                          child: DropdownButtonFormField2(
+                            decoration: InputDecoration(
+                              //Add isDense true and zero Padding.
+                              //Add Horizontal padding using buttonPadding and Vertical padding by increasing buttonHeight instead of add Padding here so that The whole TextField Button become clickable, and also the dropdown menu open under The whole TextField Button.
+                              isDense: true,
+                              contentPadding: EdgeInsets.zero,
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10),
                               ),
-                              borderRadius: BorderRadius.all(Radius.circular(10)),
+                              //Add more decoration as you want here
+                              //Add label If you want but add hint outside the decoration to be aligned in the button perfectly.
                             ),
-                          ),
-                          // child: DropdownButtonHideUnderline(
-                          //   child: DropdownButton2(
-                          //     hint: Text(
-                          //       'Select Item',
-                          //       style: TextStyle(
-                          //         fontSize: 16,
-                          //         color: Theme.of(context).hintColor,
-                          //       ),
-                          //     ),
-                          //     items: items
-                          //         .map((item) => DropdownMenuItem<String>(
-                          //       value: item,
-                          //       child: Text(
-                          //         item,
-                          //         style: const TextStyle(
-                          //           fontSize: 14,
-                          //         ),
-                          //       ),
-                          //     ))
-                          //         .toList(),
-                          //     value: selectedValue,
-                          //     onChanged: (value) {
-                          //       setState(() {
-                          //         selectedValue = value as String;
-                          //       });
-                          //     },
-                          //     buttonHeight: 40,
-                          //     buttonWidth: 350,
-                          //     itemHeight: 40,
-                          //   ),
-                          // ),
-                          child: DropdownButtonHideUnderline(
-                            child: DropdownButton2(
-                              hint: Text(
-                                'Select Bhawan',
-                              ),
-                            // items: bhawan.map(String selected_bhawan) => DropdownMenuItem<String>(
-                            //     value: selected_bhawan,
-                            //   child: Text(
-                            //     selected_bhawan,
-                            //   )
-                            // )
-                            // .tolist(),
-                            value: bhawan_selected,
-                              icon: Icon(Icons.keyboard_arrow_down),
-                              items: bhawan.map((String selected_bhawan){
-                                return DropdownMenuItem(
-                                  value: selected_bhawan,
-                                  child: Text(selected_bhawan),
-                                );
-                              }).toList(),
-                              onChanged: (String? selected){
-                                setState(() {
-                                  bhawan_selected = selected!;
-                                });
+                            isExpanded: true,
+                            hint: const Text(
+                              'Select Your Bhawan',
+                            ),
+                            icon: const Icon(
+                              Icons.arrow_drop_down,
+                              color: Colors.black45,
+                            ),
+                            iconSize: 30,
+                            buttonHeight: 60,
+                            buttonPadding: const EdgeInsets.only(left: 15, right: 15),
+                            dropdownDecoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            items: bhawan
+                                .map((item) =>
+                                DropdownMenuItem<String>(
+                                  value: item,
+                                  child: Text(
+                                    item,
+                                    style: const TextStyle(
+                                      fontSize: 14,
+                                    ),
+                                  ),
+                                ))
+                                .toList(),
+                            validator: (value) {
+                              if (value == null) {
+                                return 'Please select your bhawan.';
                               }
-                            ),
+                            },
+                            onChanged: (value) {
+                              //Do something when changing the item if you want.
+                            },
+                            onSaved: (value) {
+                              selectedValue = value.toString();
+                            },
                           ),
+
                         ),
                         Container(
                           padding: EdgeInsets.all(15.0),

@@ -1,11 +1,13 @@
 import 'package:bhawan_app/screens/laundryPage.dart';
+import 'package:bhawan_app/screens/mess.dart';
 import 'package:bhawan_app/screens/tabs.dart';
 import 'package:flutter/material.dart';
 import '../utils/banner.dart';
 import 'profilePage.dart';
+import '../screens/clientLogin.dart';
 import 'package:flutter/src/widgets/navigator.dart';
 
- main3() => runApp(HomePage());
+void main3() => runApp(HomePage());
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -81,7 +83,7 @@ class TopBar extends StatelessWidget {
                       leading: Icon(Icons.dining),
                       title: Text('Mess Menu'),
                       onTap: () {
-                        Navigator.pop(context);
+                        Navigator.of(context).push(MaterialPageRoute(builder: (context)=>MyApp()));
                       }
                   ),
                   ListTile(
@@ -102,7 +104,8 @@ class TopBar extends StatelessWidget {
                       leading: Icon(Icons.logout),
                       title: Text('Log out'),
                       onTap: () {
-                        Navigator.pop(context);
+                        Navigator.of(context).pop();
+                        LogIn();
                       }
                   ),
                 ],
