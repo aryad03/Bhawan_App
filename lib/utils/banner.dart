@@ -1,5 +1,10 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:bhawan_app/screens/laundryPage.dart';
+import 'package:bhawan_app/screens/mess.dart';
+import 'package:bhawan_app/screens/tabs.dart';
+import '../screens/profilePage.dart';
+import '../screens/EntryExit.dart';
 
 void main4()=>runApp(BannerPage());
 class BannerPage extends StatelessWidget {
@@ -7,6 +12,7 @@ class BannerPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return ListView(
       children: [
         CarouselSlider(items: [
@@ -40,13 +46,12 @@ class BannerPage extends StatelessWidget {
         ), ),
         Container(
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 SizedBox(height: 12,),
                 Container(
                   margin: EdgeInsets.all(5),
-                  // decoration: BoxDecoration(
-                  //     borderRadius: BorderRadius.all(Radius.circular(5.0))
-                  // ),
                   child: Text("An app for the bhawans of IIT-R",
                     textAlign: TextAlign.center,
                     style: TextStyle(
@@ -55,35 +60,116 @@ class BannerPage extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 4),
-                ListTile(
-                  contentPadding: EdgeInsets.fromLTRB(10, 10, 10, 0),
-                  leading: Icon(Icons.meeting_room),
-                  title: Text('Digitalized entry-exit system'),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        CardField(
+                            size,
+                            Colors.blue,
+                            IconButton(
+                              icon: Icon(Icons.person),
+                              color: Colors.white, onPressed: () {
+                              Navigator.of(context).push(MaterialPageRoute(builder: (context)=>ProfilePage()));
+                            },
+                            ),
+                          'Profile',),
+                        CardField(
+                          size,
+                          Colors.blue,
+                          IconButton(
+                            icon: Icon(Icons.meeting_room),
+                            color: Colors.white, onPressed: () {
+                            Navigator.of(context).push(MaterialPageRoute(builder: (context)=> EnExPage()));
+                          },
+                          ),
+                          'Entry-Exit',),
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                      CardField(
+                          size,
+                          Colors.amber,
+                          IconButton(icon: Icon(Icons.water), color: Colors.white, onPressed: () {
+                          Navigator.of(context).push(MaterialPageRoute(builder: (context)=>TemplateUser()));
+                          },),
+                          'Laundry',),
+                        CardField(
+                            size,
+                            Colors.orange,
+                            IconButton( icon: Icon(Icons.dining), color: Colors.white, onPressed: () {
+                              Navigator.of(context).push(MaterialPageRoute(builder: (context)=>MyApp()));
+                            },),
+                            'Mess Menu',),
+
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        CardField(
+                            size,
+                            Colors.purple,
+                            IconButton(icon: Icon(Icons.report_problem), color: Colors.white, onPressed: () {
+                              Navigator.of(context).push(MaterialPageRoute(builder: (context)=>TabsScreen()));
+
+                            },),
+                            'Complain',),
+                        CardField(
+                          size,
+                          Colors.teal,
+                          IconButton(icon: Icon(Icons.info), color: Colors.white, onPressed: () {
+                            Navigator.pop(context);
+                          },),
+                          'Notice Board',),
+                      ],
+                    )
+                  ],
                 ),
-                ListTile(
-                    contentPadding: EdgeInsets.fromLTRB(10, 10, 10, 0),
-                    leading: Icon(Icons.water),
-                    title: Text("Know the status of your laundry online")
-                ),
-                ListTile(
-                  contentPadding: EdgeInsets.fromLTRB(10, 10, 10, 0),
-                  leading: Icon(Icons.report_problem),
-                  title: Text('Register a complain from anywhere anytime'),
-                ),
-                ListTile(
-                  contentPadding: EdgeInsets.fromLTRB(10, 10, 10, 0),
-                  leading: Icon(Icons.info),
-                  title: Text('Get the mess menu and the noticeboard on your device'),
-                ),
-                ListTile(
-                  contentPadding: EdgeInsets.fromLTRB(10, 10, 10, 0),
-                  leading: Icon(Icons.people),
-                  title: Text('Know your bhawan council and bhawan management team'),
-                )
               ],
             )
         )
       ],
     );
   }
+}
+
+CardField(
+    Size size,
+    Color color,
+    IconButton icon,
+    String title,
+    ) {
+  return Padding(
+    padding: const EdgeInsets.all(10),
+    child: Card(
+      elevation: 3,
+        child: SizedBox(
+            height: size.height * .1,
+            width: size.width * .42,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                CircleAvatar(
+                  backgroundColor: color,
+                  child: icon,
+                  ),
+                SizedBox(height: 2),
+                Text(
+                  title,
+                  style: const TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.w400,
+                  fontSize: 14),
+                  ),
+                ]
+            )
+    ),
+   )
+  );
 }

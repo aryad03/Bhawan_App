@@ -1,12 +1,8 @@
-import 'package:bhawan_app/screens/laundryPage.dart';
-import 'package:bhawan_app/screens/mess.dart';
-import 'package:bhawan_app/screens/tabs.dart';
+
 import 'package:flutter/material.dart';
 import '../utils/banner.dart';
-import 'profilePage.dart';
 import '../screens/clientLogin.dart';
 import 'package:flutter/src/widgets/navigator.dart';
-
 void main3() => runApp(HomePage());
 
 class HomePage extends StatelessWidget {
@@ -43,62 +39,29 @@ class TopBar extends StatelessWidget {
               ListView(
                 padding: EdgeInsets.all(0),
                 children: [
-                  DrawerHeader(
-                    child: UserAccountsDrawerHeader(
-                      accountName: Text('User Name'),
-                      accountEmail: Text('user@iitr.ac.in'),
-                      currentAccountPicture: CircleAvatar(
-                        backgroundColor: Color.fromARGB(43, 140, 161, 1),
-                        foregroundImage: AssetImage('images/default.jpg'),
+                  Container(
+                    height: 250,
+                    color: Colors.purple,
+                    child: DrawerHeader(
+                      padding: EdgeInsets.all(20),
+                      child: Container(
+                          decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              image: DecorationImage(image: AssetImage("images/default.jpg"))
+                          ),
                       ),
-                      currentAccountPictureSize: Size.square(50),
-                      decoration: BoxDecoration(color: Colors.purple,),
-                    ),
-                    decoration: BoxDecoration(
-                      color: Colors.purple,
                     ),
                   ),
                   ListTile(
                     leading: Icon(Icons.person),
-                    title: Text('My profile'),
-                    onTap: () {
-                      Navigator.of(context).push(MaterialPageRoute(builder: (context)=>ProfilePage()));
-                    },
+                    title: Text("Name of the user"),
                   ),
                   ListTile(
-                    leading: Icon(Icons.meeting_room),
-                    title: Text('Entry-Exit'),
-                    onTap: () {
-                      Navigator.pop(context);
-                    },
+                    leading: Icon(Icons.email),
+                    title: Text("user@iitr.ac.in"),
                   ),
-                  ListTile(
-                      leading: Icon(Icons.water),
-                      title: Text('Laundry'),
-                      onTap: () {
-                        Navigator.of(context).push(MaterialPageRoute(builder: (context)=>TemplateUser()));
-                      }
-                  ),
-                  ListTile(
-                      leading: Icon(Icons.dining),
-                      title: Text('Mess Menu'),
-                      onTap: () {
-                        Navigator.of(context).push(MaterialPageRoute(builder: (context)=>MyApp()));
-                      }
-                  ),
-                  ListTile(
-                    leading: Icon(Icons.info),
-                    title: Text('Notice Board'),
-                    onTap: () {
-                      Navigator.pop(context);
-                    },
-                  ),
-                  ListTile(
-                      leading: Icon(Icons.report_problem),
-                      title: Text('Complain'),
-                      onTap: () {
-                        Navigator.of(context).push(MaterialPageRoute(builder: (context)=>TabsScreen()));
-                      }
+                  Divider(
+                    thickness: 1.0,
                   ),
                   ListTile(
                       leading: Icon(Icons.logout),
