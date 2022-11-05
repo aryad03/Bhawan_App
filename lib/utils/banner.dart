@@ -1,8 +1,11 @@
+import 'package:bhawan_app/models/user_auth.dart';
+import 'package:bhawan_app/services/database_laundry.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:bhawan_app/screens/laundryPage.dart';
 import 'package:bhawan_app/screens/mess.dart';
 import 'package:bhawan_app/screens/tabs.dart';
+import 'package:provider/provider.dart';
 import '../screens/profilePage.dart';
 import '../screens/EntryExit.dart';
 
@@ -12,6 +15,9 @@ class BannerPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final userData = Provider.of<UserDataGlobal>(context);
+    final user = Provider.of<UserAuth>(context);
+
     Size size = MediaQuery.of(context).size;
     return ListView(
       children: [

@@ -1,4 +1,6 @@
+import 'package:bhawan_app/models/user_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import '../utils/laundryCommonElements.dart';
 
 class LaundryStatusUser extends StatefulWidget {
@@ -9,10 +11,16 @@ class LaundryStatusUser extends StatefulWidget {
 }
 
 class _LaundryStatusUserState extends State<LaundryStatusUser> {
-  String status = 'Clothes are ready';
+  String status = '';
 
   @override
   Widget build(BuildContext context) {
+
+    final userdata = Provider.of<UserLaundry>(context);
+
+    if(userdata.inproccess==false) status='Clothes are ready';
+    else status='Clothes are not ready';
+
     return Column(
         children: [
           LaundryBar(),

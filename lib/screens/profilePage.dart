@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:bhawan_app/screens/homePage.dart';
+import 'package:provider/provider.dart';
+
+import '../models/user_auth.dart';
 
 class ProfilePage extends StatelessWidget {
   ProfilePage({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+
+    final userData = Provider.of<UserDataGlobal>(context);
+
     return Container(
         child: Scaffold(
           appBar: AppBar(
@@ -69,32 +75,28 @@ class ProfilePage extends StatelessWidget {
                                 SizedBox(height: 20),
                                 Text("Branch: ", style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold),),
                                 SizedBox(height: 20),
-                                Text("Passing Year: ", style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold),),
-                                SizedBox(height: 20),
                               ],
                             ),
                             SizedBox(width: 20),
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text("User Name", style: TextStyle(fontSize: 13),),
+                                Text(userData.name, style: TextStyle(fontSize: 13),),
                                 SizedBox(height: 20),
-                                Text("user@iitr.ac.in", style: TextStyle(fontSize: 13),),
+                                Text(userData.email, style: TextStyle(fontSize: 13),),
                                 SizedBox(height: 20),
-                                Text("21114007", style: TextStyle(fontSize: 13),),
+                                Text(userData.enrollment_number, style: TextStyle(fontSize: 13),),
                                 SizedBox(height: 20),
-                                Text("Kasturba Bhawan ", style: TextStyle(fontSize: 13),),
+                                Text(userData.bhawan, style: TextStyle(fontSize: 13),),
                                 SizedBox(height: 20),
-                                Text("C-514 ", style: TextStyle(fontSize: 13),),
+                                Text(userData.room_number, style: TextStyle(fontSize: 13),),
                                 SizedBox(height: 20),
-                                Text("CSE ", style: TextStyle(fontSize: 13),),
-                                SizedBox(height: 20),
-                                Text("2025 ", style: TextStyle(fontSize: 13),),
+                                Text(userData.branch, style: TextStyle(fontSize: 13),),
                                 SizedBox(height: 20),
                               ],
-                            )
+                            ),
                           ],
-                        )
+                        ),
                     ),
                   ],
                 ),

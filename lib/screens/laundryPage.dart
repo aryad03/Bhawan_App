@@ -1,5 +1,8 @@
+import 'package:bhawan_app/models/user_auth.dart';
 import 'package:bhawan_app/screens/homePage.dart';
+import 'package:bhawan_app/utils/loading.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'laundryHome.dart';
 import 'laundryStatus.dart';
 
@@ -29,45 +32,56 @@ class _TemplateStateUser extends State<TemplateUser> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(
-        primarySwatch: Colors.purple,
-      ),
-      home: Scaffold(
-        appBar: AppBar(
-        leading: Builder(
-        builder: (BuildContext context) {
-        return IconButton(
-        icon: const Icon(Icons.arrow_back),
-        onPressed: () { Navigator.of(context).pop(TemplateUser());
-          Navigator.of(context).push(MaterialPageRoute(builder: (context)=> HomePage()));
+
+    final userdata1 = Provider.of<UserLaundry?>(context);
+
+    if(userdata1==null)
+     return Loading();
+    else {
+      if (userdata1.inproccess != false) currentIndex = 1;
+
+      return MaterialApp(
+        theme: ThemeData(
+          primarySwatch: Colors.purple,
+        ),
+        home: Scaffold(
+          appBar: AppBar(
+            leading: Builder(
+              builder: (BuildContext context) {
+                return IconButton(
+                  icon: const Icon(Icons.arrow_back),
+                  onPressed: () {
+                    Navigator.of(context).pop(TemplateUser());
+                    Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) => HomePage()));
+                  },
+                );
               },
-            );
-          },
-        ),
-        title: Text("Bhawan App"),
-        ),
-        body: _children[currentIndex],
-        bottomNavigationBar: BottomNavigationBar(
-          currentIndex: currentIndex,
-          backgroundColor: Colors.purple,
-          selectedItemColor: Colors.amber,
-          unselectedItemColor: Colors.white,
-          type: BottomNavigationBarType.fixed,
-          // selectedItemColor: Colors.purple,
-          items: <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: 'Home',
             ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.check),
-              label: 'Status',
-            ),
-          ],
-          onTap: onTab,
+            title: Text("Bhawan App"),
+          ),
+          body: _children[currentIndex],
+          bottomNavigationBar: BottomNavigationBar(
+            currentIndex: currentIndex,
+            backgroundColor: Colors.purple,
+            selectedItemColor: Colors.amber,
+            unselectedItemColor: Colors.white,
+            type: BottomNavigationBarType.fixed,
+            // selectedItemColor: Colors.purple,
+            items: <BottomNavigationBarItem>[
+              BottomNavigationBarItem(
+                icon: Icon(Icons.home),
+                label: 'Home',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.check),
+                label: 'Status',
+              ),
+            ],
+            onTap: onTab,
+          ),
         ),
-      ),
-    );
+      );
+    }
   }
 }

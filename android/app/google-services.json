@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "715292032924",
+    "project_id": "bhawan-app",
+    "storage_bucket": "bhawan-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:715292032924:android:c54c608d1adb72dd56d259",
+        "android_client_info": {
+          "package_name": "com.example.bhawan_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "715292032924-t1gsmkk6logr1qn02oohra9krj87gj3i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD2EKpzcLPm-gd4YZS7I0uIYsLEH1R8G40"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "715292032924-t1gsmkk6logr1qn02oohra9krj87gj3i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
