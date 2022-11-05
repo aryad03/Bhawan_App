@@ -43,7 +43,7 @@ class _TabsScreenState extends State<TabsScreen> {
           );
         },
       ),
-      title: Text("Bhawan App"),
+      title: Text("Laundry System"),
     ),
       body: pages[selectedPageIndex]['page'],
       bottomNavigationBar: BottomNavigationBar(

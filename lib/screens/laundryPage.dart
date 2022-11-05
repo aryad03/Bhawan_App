@@ -58,7 +58,7 @@ class _TemplateStateUser extends State<TemplateUser> {
                 );
               },
             ),
-            title: Text("Bhawan App"),
+            title: Text("Laundry System"),
           ),
           body: _children[currentIndex],
           bottomNavigationBar: BottomNavigationBar(

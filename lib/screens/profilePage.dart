@@ -10,7 +10,7 @@ class ProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
 
     final userData = Provider.of<UserDataGlobal>(context);
-
+    Size size = MediaQuery.of(context).size;
     return Container(
         child: Scaffold(
           appBar: AppBar(
@@ -25,85 +25,114 @@ class ProfilePage extends StatelessWidget {
                 );
               },
             ),
-            title: Text("Bhawan App"),
+            title: Text("My Profile"),
           ),
           body:
-          Container(
-            child: Column(
-              children: [
-                Container(
-                  padding: EdgeInsets.all(10),
-                  child: Text("My Profile ",
-                    style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold
-                    ),
-                  ),
-                  height: 52,
-                  width: MediaQuery.of(context).size.width,
-                  decoration: BoxDecoration(
-                    color: Colors.grey,
-                  ),
-                ),
-                Column(
-                  children: [
-                    SizedBox(height: 20),
-                    Container(
-                        decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            image: DecorationImage(image: AssetImage("images/default.jpg"))
-                        ), height: 200
-                    ),
-                    SizedBox(height: 20),
-                    Container(
-                        padding: EdgeInsets.all(15),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
+          SingleChildScrollView(
+            child: Container(
+              width: size.width *1,
+              child: Column(
+                children: [
+                  Column(
+                    children: [
+                      SizedBox(height: 20),
+                      Container(
+                          decoration: BoxDecoration(
+                            border: Border.all(color: Colors.purple, width: 1.5),
+                              shape: BoxShape.circle,
+                              image: DecorationImage(image: AssetImage("images/default.jpg"))
+                          ), height: size.height* .3
+                      ),
+                      SingleChildScrollView(
+                        child: Container(
+                            padding: EdgeInsets.fromLTRB(15, 15 , 15, 0),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Text("Name:", style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold)),
-                                SizedBox(height: 20),
-                                Text("Email-id:", style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold),),
-                                SizedBox(height: 20),
-                                Text("Enrollment No: ", style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold),),
-                                SizedBox(height: 20),
-                                Text("Bhawan: ", style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold),),
-                                SizedBox(height: 20),
-                                Text("Room No.: ", style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold),),
-                                SizedBox(height: 20),
-                                Text("Branch: ", style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold),),
-                                SizedBox(height: 20),
+                                CardField(
+                                    size,
+                                    Colors.purple,
+                                    Icon(Icons.person, color: Colors.white),
+                                    userData.name,
+                                    'Name'),
+                                CardField(
+                                    size,
+                                    Colors.purple,
+                                    Icon(Icons.mail, color: Colors.white),
+                                    userData.email,
+                                    'E-mail'),
+                                CardField(
+                                    size,
+                                    Colors.purple,
+                                    Icon(Icons.assignment_ind, color: Colors.white),
+                                    userData.enrollment_number,
+                                    'Enrollment Number'),
+                                CardField(
+                                    size,
+                                    Colors.purple,
+                                    Icon(Icons.other_houses, color: Colors.white),
+                                    userData.bhawan,
+                                    'Bhawan'),
+                                CardField(
+                                    size,
+                                    Colors.purple,
+                                    Icon(Icons.local_hotel, color: Colors.white),
+                                    userData.room_number,
+                                    'Room Number'),
+                                CardField(
+                                    size,
+                                    Colors.purple,
+                                    Icon(Icons.info, color: Colors.white),
+                                    userData.branch,
+                                    'Branch'),
                               ],
                             ),
-                            SizedBox(width: 20),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(userData.name, style: TextStyle(fontSize: 13),),
-                                SizedBox(height: 20),
-                                Text(userData.email, style: TextStyle(fontSize: 13),),
-                                SizedBox(height: 20),
-                                Text(userData.enrollment_number, style: TextStyle(fontSize: 13),),
-                                SizedBox(height: 20),
-                                Text(userData.bhawan, style: TextStyle(fontSize: 13),),
-                                SizedBox(height: 20),
-                                Text(userData.room_number, style: TextStyle(fontSize: 13),),
-                                SizedBox(height: 20),
-                                Text(userData.branch, style: TextStyle(fontSize: 13),),
-                                SizedBox(height: 20),
-                              ],
-                            ),
-                          ],
                         ),
-                    ),
-                  ],
-                ),
-              ],
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
         )
     );
   }
+}
+CardField(
+    Size size,
+    Color color,
+    Icon icon,
+    String title,
+    String subtitle,
+    ) {
+  return Padding(
+    padding: const EdgeInsets.all(2),
+    child: Card(
+        child: SizedBox(
+            height: size.height * .1,
+            width: size.width * .9,
+            child: Center(
+              child: ListTile(
+                leading: CircleAvatar(
+                  backgroundColor: color,
+                  child: icon,
+                ),
+                title: Text(
+                  title,
+                  style: const TextStyle(
+                      color: Colors.black54,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 14),
+                ),
+                subtitle: Text(
+                  subtitle,
+                  style: const TextStyle(
+                      color: Colors.grey,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 13),
+                ),
+              ),
+            ))),
+  );
 }

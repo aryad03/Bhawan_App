@@ -29,7 +29,7 @@ class TopBar extends StatelessWidget {
   Widget build(BuildContext context) {
     final userData = Provider.of<UserDataGlobal>(context);
     final user = Provider.of<UserAuth>(context);
-
+    Size size = MediaQuery.of(context).size;
     return
       StreamProvider<UserLaundry?>.value(
         initialData: null,
@@ -51,8 +51,8 @@ class TopBar extends StatelessWidget {
                   padding: EdgeInsets.all(0),
                   children: [
                     Container(
-                      height: 250,
                       color: Colors.purple,
+                      height: size.height *.4,
                       child: DrawerHeader(
                         padding: EdgeInsets.all(20),
                         child: Container(

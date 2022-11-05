@@ -5,11 +5,15 @@ import '../utils/loading.dart';
 import '/utils/constants.dart';
 import '../utils/button.dart';
 import '../main.dart';
+import 'clientRegistration.dart';
 import 'otp.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
 
 var bhawan = ['Rajiv Bhawan', 'Rajendra Bhawan', 'Cautley Bhawan', 'Kasturba Bhawan', 'Jawhar Bhawan', 'Ravindra Bhawan', 'Sarojani Bhawan', 'Govind Bhawan', 'Ganga Bhawan', 'RadhaKrishn Bhawan', 'VigyanKunj'];
 String? selectedValue;
+var type = ['Student','Laundry Man', 'Guard'];
+String? accountType;
+bool showvalue=false;
 final _formKey = GlobalKey<FormState>();
 
 class RegistrationPage extends StatefulWidget {
@@ -33,10 +37,12 @@ class _RegistrationPageState extends State<RegistrationPage> {
   String _bhawan_selected = '';
   String _branch = '';
   String _error = '';
+  String _account = type.first;
   bool _loading = false;
   String bhawan_selected = bhawan.first;
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return _loading ? Loading() : MaterialApp(
       theme: ThemeData(
         primarySwatch: kPrimaryColor,
@@ -71,21 +77,13 @@ class _RegistrationPageState extends State<RegistrationPage> {
                               ),
                             ),
                           ),
-                          Container(
-                            child: Text(
-                              'Bhawan App',
-                              style: TextStyle(
-                                fontSize: 30,
-                                fontWeight: FontWeight.bold,
-                                color: kPrimaryColor,
-                              ),
-                            ),
-                          ),
                         ],
                       ),
                       Container(
-                        child: Text('Create a new account'),
-                      ),
+                        child: Text('Create a new account', style: TextStyle(fontSize: 18,
+                            color: Colors.black,
+                        ),),
+                        ),
                       Column(
                         children: [
                           Container(
@@ -243,8 +241,61 @@ class _RegistrationPageState extends State<RegistrationPage> {
                             ),
                           ),
                           Container(
+                            padding: EdgeInsets.all(15.0),
+                            child: DropdownButtonFormField2(
+                              decoration: InputDecoration(
+                                isDense: true,
+                                contentPadding: EdgeInsets.zero,
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                              ),
+                              isExpanded: true,
+                              hint: const Text(
+                                'Select Your role',),
+                              icon: const Icon(
+                                Icons.arrow_drop_down,
+                                color: Colors.black45,
+                              ),
+                              iconSize: 30,
+                              buttonHeight: 60,
+                              buttonPadding: const EdgeInsets.only(left: 15, right: 15),
+                              dropdownDecoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              items: type
+                                  .map((itema) =>
+                                  DropdownMenuItem<String>(
+                                    value: itema,
+                                    child: Text(
+                                      itema,
+                                      style: const TextStyle(
+                                        fontSize: 14,
+                                      ),
+                                    ),
+                                  ))
+                                  .toList(),
+                              validator: (valued) {
+                                if (valued == null) {
+                                  return 'Please select your role.';
+                                }
+                              },
+                              onChanged: (valued) {
+                                //Do something when changing the item if you want.
+                                setState(() {
+                                  _account = valued! as String;
+                                });
+                              },
+                              onSaved: (valued) {
+                                accountType= valued.toString();
+                              },
+                            ),
+                          ),
+                          Container(
+                            width: size.width * 0.3,
                             margin: EdgeInsets.all(0),
                             child: ElevatedButton(
+
                               onPressed: () async{
                                 if(_formKey.currentState!.validate()) {
                                   setState(() {
@@ -261,19 +312,22 @@ class _RegistrationPageState extends State<RegistrationPage> {
                               },
                               child: Text('Register'),
                               style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.black,
+                                backgroundColor: Colors.purple,
                               ),
                             ),
                           ),
 
                           SizedBox(height: 15,),
-                          ElevatedButton(
-                            onPressed: () {
-                              widget.toggle();
-                            },
-                            child: Text('Sign In'),
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.black,
+                          Container(
+                            width: size.width * 0.3,
+                            child: ElevatedButton(
+                              onPressed: () {
+                                widget.toggle();
+                              },
+                              child: Text('Sign In'),
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.purple,
+                              ),
                             ),
                           ),
                           Text(_error),

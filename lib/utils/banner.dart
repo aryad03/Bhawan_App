@@ -8,6 +8,7 @@ import 'package:bhawan_app/screens/tabs.dart';
 import 'package:provider/provider.dart';
 import '../screens/profilePage.dart';
 import '../screens/EntryExit.dart';
+import 'package:animated_text_kit/animated_text_kit.dart';
 
 void main4()=>runApp(BannerPage());
 class BannerPage extends StatelessWidget {
@@ -25,11 +26,14 @@ class BannerPage extends StatelessWidget {
           Container(
             alignment: Alignment.center,
             width: MediaQuery.of(context).size.width,
-            child: Text("Welcome!",style: TextStyle(
-              color: Colors.white,
-              fontSize: 50,
-            ),
-              textAlign: TextAlign.center,
+            child: AnimatedTextKit(animatedTexts: [
+              TyperAnimatedText("Welcome!",
+              speed: Duration(milliseconds: 450),
+              textStyle: TextStyle(
+                color: Colors.white,
+                fontSize: 50,
+              ))
+            ],
             ),
             decoration: BoxDecoration(
                 color: Colors.purple[200]
@@ -42,7 +46,7 @@ class BannerPage extends StatelessWidget {
             ),
           ),
         ], options: CarouselOptions(
-            height: 230.0,
+            height: size.height * .4,
             autoPlay: true,
             aspectRatio: 16/9,
             autoPlayCurve: Curves.fastOutSlowIn,
@@ -51,24 +55,17 @@ class BannerPage extends StatelessWidget {
             autoPlayAnimationDuration: Duration(milliseconds: 800)
         ), ),
         Container(
+          height: size.height*.4,
+          color: Colors.white,
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                SizedBox(height: 12,),
-                Container(
-                  margin: EdgeInsets.all(5),
-                  child: Text("An app for the bhawans of IIT-R",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        fontWeight: FontWeight.w500,
-                        fontSize: 25),
-                  ),
-                ),
-                SizedBox(height: 4),
+                SizedBox(height: 20,),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
+                    SizedBox(
+                      height: 10,
+                    ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
@@ -84,7 +81,7 @@ class BannerPage extends StatelessWidget {
                           'Profile',),
                         CardField(
                           size,
-                          Colors.blue,
+                          Colors.lime,
                           IconButton(
                             icon: Icon(Icons.meeting_room),
                             color: Colors.white, onPressed: () {
@@ -92,6 +89,14 @@ class BannerPage extends StatelessWidget {
                           },
                           ),
                           'Entry-Exit',),
+                        CardField(
+                          size,
+                          Colors.pinkAccent,
+                          IconButton(icon: Icon(Icons.report_problem), color: Colors.white, onPressed: () {
+                            Navigator.of(context).push(MaterialPageRoute(builder: (context)=>TabsScreen()));
+
+                          },),
+                          'Complain',),
                       ],
                     ),
                     Row(
@@ -111,20 +116,6 @@ class BannerPage extends StatelessWidget {
                               Navigator.of(context).push(MaterialPageRoute(builder: (context)=>MyApp()));
                             },),
                             'Mess Menu',),
-
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        CardField(
-                            size,
-                            Colors.purple,
-                            IconButton(icon: Icon(Icons.report_problem), color: Colors.white, onPressed: () {
-                              Navigator.of(context).push(MaterialPageRoute(builder: (context)=>TabsScreen()));
-
-                            },),
-                            'Complain',),
                         CardField(
                           size,
                           Colors.teal,
@@ -132,8 +123,9 @@ class BannerPage extends StatelessWidget {
                             Navigator.pop(context);
                           },),
                           'Notice Board',),
+
                       ],
-                    )
+                    ),
                   ],
                 ),
               ],
@@ -153,10 +145,11 @@ CardField(
   return Padding(
     padding: const EdgeInsets.all(10),
     child: Card(
-      elevation: 3,
+        elevation: 0,
+        shadowColor: Colors.white,
         child: SizedBox(
             height: size.height * .1,
-            width: size.width * .42,
+            width: size.width * .22,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,

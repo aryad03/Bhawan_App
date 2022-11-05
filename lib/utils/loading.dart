@@ -8,10 +8,10 @@ class Loading extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Container(
-        color: Colors.white,
+        color: Colors.purple,
         child: Center(
           child: SpinKitChasingDots(
-            color: Colors.purple,
+            color: Colors.white,
             size: 40,
           ),
         ),

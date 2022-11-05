@@ -23,7 +23,6 @@ class _LaundryStatusUserState extends State<LaundryStatusUser> {
 
     return Column(
         children: [
-          LaundryBar(),
           SizedBox(height: 220.0,),
           Center(
             child: Container(

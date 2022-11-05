@@ -27,6 +27,7 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return _loading ? Loading() : MaterialApp(
       theme: ThemeData(
         primarySwatch: kPrimaryColor,
@@ -96,46 +97,58 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                       ),
                       Container(
-                        padding: EdgeInsets.all(15.0),
-                        child: Container(
-                          width: 150,
-                          child: ElevatedButton(
-                            onPressed: () {
-                              widget.toggle();
-                            },
-                            child: Text('Sign Up'),
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.black,
+                        width: size.width * 0.85,
+                        child: Column(
+                          children: [
+                            Container(
+                              padding: EdgeInsets.all(15.0),
+                              child: Container(
+                                width: size.width * 0.3,
+                                child: ElevatedButton(
+                                  onPressed: () async {
+                                    if (_formKey.currentState!.validate()) {
+                                      setState(() {
+                                        _loading = true;
+                                      });
+                                      dynamic result = await _auth.signIn(_email, _password);
+                                      if (result == null) {
+                                        setState(() {
+                                          _error = 'Could not find credentials';
+                                          _loading = false;
+                                        });
+                                      }
+                                    }
+                                  },
+                                  child: Text('Sign In',style: TextStyle(fontSize: 15),),
+                                  style: ElevatedButton.styleFrom(
+                                    backgroundColor: Colors.purple,
+                                  ),
+                                ),
+                              ),
                             ),
-                          ),
+                            Divider(
+                              thickness: 1.07,
+                              color: Colors.black,
+                            ),
+                            Container(
+                              padding: EdgeInsets.all(15.0),
+                              child: Container(
+                                width: size.width * 0.3,
+                                child: ElevatedButton(
+                                  onPressed: () {
+                                    widget.toggle();
+                                  },
+                                  child: Text('Sign Up',style: TextStyle(fontSize: 15),),
+                                  style: ElevatedButton.styleFrom(
+                                    backgroundColor: Colors.purple,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
                       ),
-                      Container(
-                        padding: EdgeInsets.all(15.0),
-                        child: Container(
-                          width: 150,
-                          child: ElevatedButton(
-                            onPressed: () async {
-                              if (_formKey.currentState!.validate()) {
-                                setState(() {
-                                  _loading = true;
-                                });
-                                dynamic result = await _auth.signIn(_email, _password);
-                                if (result == null) {
-                                  setState(() {
-                                    _error = 'Could not find credentials';
-                                    _loading = false;
-                                  });
-                                }
-                              }
-                            },
-                            child: Text('Sign In'),
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.black,
-                            ),
-                          ),
-                        ),
-                      ),
+
                       Text(_error),
                     ],
                   ),
