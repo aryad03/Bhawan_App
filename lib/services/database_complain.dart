@@ -1,0 +1,26 @@
+import 'dart:math';
+
+import 'package:bhawan_app/models/user_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+
+class DataBaseComplain{
+  String uid;
+  String bhawan;
+
+  DataBaseComplain({required this.uid,required this.bhawan});
+
+
+  final CollectionReference complainmanagement = FirebaseFirestore.instance.collection('Complain Management');
+
+  Future updateData(String name,String roomnumber, String complaintype,String description,bool inprocess) async {
+    int rand = Random().nextInt(10000);
+
+    return await complainmanagement.doc(bhawan!).collection(uid!).doc(rand.toString()).set({
+      'name': name,
+      'roomnumber': roomnumber,
+      'complaintype': complaintype,
+      'description': description,
+      'inprocess': inprocess,
+    });
+  }
+}

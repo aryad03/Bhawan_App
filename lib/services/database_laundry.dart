@@ -28,13 +28,13 @@ class DataBaseLaundry{
   List<UserLaundry> _convert(QuerySnapshot snapshot){
     return snapshot.docs.map((docs){
       // print(docs.id);
-      return UserLaundry(inproccess: docs['inprocess'], clothes: docs['clothes'], roomnumber: docs['roomnumber'],id: docs.id);
+      return UserLaundry(inproccess: docs['inprocess'], clothes: docs['clothes'], roomnumber: docs['roomnumber'],id: docs.id,name: docs['name']);
     }).toList();
   }
 
   UserLaundry _docToUser(DocumentSnapshot snapshot){
     print(snapshot.id);
-    return UserLaundry(roomnumber: snapshot['roomnumber'], clothes: snapshot['clothes'], inproccess: snapshot['inprocess'], id: snapshot.id);
+    return UserLaundry(roomnumber: snapshot['roomnumber'], clothes: snapshot['clothes'], inproccess: snapshot['inprocess'], id: snapshot.id,name: snapshot['name']);
   }
 
   Stream<UserLaundry> get userdatalaundry{

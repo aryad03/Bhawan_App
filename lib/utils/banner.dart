@@ -56,79 +56,82 @@ class BannerPage extends StatelessWidget {
         ), ),
         Container(
           height: size.height*.4,
+          width: size.width*.8,
           color: Colors.white,
-            child: Column(
-              children: [
-                SizedBox(height: 20,),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        CardField(
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  SizedBox(height: 20,),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          CardField(
+                              size,
+                              Colors.blue,
+                              IconButton(
+                                icon: Icon(Icons.person),
+                                color: Colors.white, onPressed: () {
+                                Navigator.of(context).push(MaterialPageRoute(builder: (context)=>ProfilePage()));
+                              },
+                              ),
+                            'Profile',),
+                          CardField(
                             size,
-                            Colors.blue,
+                            Colors.lime,
                             IconButton(
-                              icon: Icon(Icons.person),
+                              icon: Icon(Icons.meeting_room),
                               color: Colors.white, onPressed: () {
-                              Navigator.of(context).push(MaterialPageRoute(builder: (context)=>ProfilePage()));
+                              Navigator.of(context).push(MaterialPageRoute(builder: (context)=> EnExPage()));
                             },
                             ),
-                          'Profile',),
-                        CardField(
-                          size,
-                          Colors.lime,
-                          IconButton(
-                            icon: Icon(Icons.meeting_room),
-                            color: Colors.white, onPressed: () {
-                            Navigator.of(context).push(MaterialPageRoute(builder: (context)=> EnExPage()));
-                          },
-                          ),
-                          'Entry-Exit',),
-                        CardField(
-                          size,
-                          Colors.pinkAccent,
-                          IconButton(icon: Icon(Icons.report_problem), color: Colors.white, onPressed: () {
-                            Navigator.of(context).push(MaterialPageRoute(builder: (context)=>TabsScreen()));
+                            'Entry-Exit',),
+                          CardField(
+                            size,
+                            Colors.pinkAccent,
+                            IconButton(icon: Icon(Icons.report_problem), color: Colors.white, onPressed: () {
+                              Navigator.of(context).push(MaterialPageRoute(builder: (context)=>TabsScreen()));
 
-                          },),
-                          'Complain',),
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                      CardField(
-                          size,
-                          Colors.amber,
-                          IconButton(icon: Icon(Icons.water), color: Colors.white, onPressed: () {
-                          Navigator.of(context).push(MaterialPageRoute(builder: (context)=>TemplateUser()));
-                          },),
-                          'Laundry',),
+                            },),
+                            'Complain',),
+                        ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
                         CardField(
                             size,
-                            Colors.orange,
-                            IconButton( icon: Icon(Icons.dining), color: Colors.white, onPressed: () {
-                              Navigator.of(context).push(MaterialPageRoute(builder: (context)=>MyApp()));
+                            Colors.amber,
+                            IconButton(icon: Icon(Icons.water), color: Colors.white, onPressed: () {
+                            Navigator.of(context).push(MaterialPageRoute(builder: (context)=>TemplateUser()));
                             },),
-                            'Mess Menu',),
-                        CardField(
-                          size,
-                          Colors.teal,
-                          IconButton(icon: Icon(Icons.info), color: Colors.white, onPressed: () {
-                            Navigator.pop(context);
-                          },),
-                          'Notice Board',),
+                            'Laundry',),
+                          CardField(
+                              size,
+                              Colors.orange,
+                              IconButton( icon: Icon(Icons.dining), color: Colors.white, onPressed: () {
+                                Navigator.of(context).push(MaterialPageRoute(builder: (context)=>MyApp()));
+                              },),
+                              'Mess Menu',),
+                          CardField(
+                            size,
+                            Colors.teal,
+                            IconButton(icon: Icon(Icons.info), color: Colors.white, onPressed: () {
+                              Navigator.pop(context);
+                            },),
+                            'Notice Board',),
 
-                      ],
-                    ),
-                  ],
-                ),
-              ],
+                        ],
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             )
         )
       ],
@@ -143,13 +146,13 @@ CardField(
     String title,
     ) {
   return Padding(
-    padding: const EdgeInsets.all(10),
+    padding: const EdgeInsets.all(5),
     child: Card(
         elevation: 0,
         shadowColor: Colors.white,
         child: SizedBox(
             height: size.height * .1,
-            width: size.width * .22,
+            width: size.width * .3,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -164,7 +167,7 @@ CardField(
                   style: const TextStyle(
                   color: Colors.black,
                   fontWeight: FontWeight.w400,
-                  fontSize: 14),
+                  fontSize: 12),
                   ),
                 ]
             )
