@@ -54,7 +54,7 @@ class _TabsScreenState extends State<TabsScreen> {
             );
           },
         ),
-        title: Text("Laundry System"),
+        title: Text("Complain System"),
       ),
         body: pages[selectedPageIndex]['page'],
         bottomNavigationBar: BottomNavigationBar(

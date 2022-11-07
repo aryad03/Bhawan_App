@@ -44,19 +44,8 @@ class _registerComplaintState extends State<registerComplaint> {
           child: Form(
             key: _formKey,
             child: Column(
+
               children: [
-                Container(
-                  color: Color.fromARGB(255, 177, 175, 175),
-                  padding: EdgeInsets.all(10),
-                  height: 52,
-                  width: MediaQuery.of(context).size.width,
-                  child: SizedBox(
-                    height: 56.0,
-                    child: Text('Complaint Management',
-                        style:
-                            TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-                  ),
-                ),
                 SizedBox(
                   height: 15,
                 ),
@@ -87,36 +76,6 @@ class _registerComplaintState extends State<registerComplaint> {
                         alignment: Alignment.topLeft,
                         child: Column(
                           children: [
-                            Container(
-                              padding: EdgeInsets.all(5.0),
-                              child: TextFormField(
-                                decoration: InputDecoration(
-                                  border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                  labelText: 'Your Name',
-                                  hintText: 'Enter your name here',
-                                ),
-                              ),
-                            ),
-                            SizedBox(
-                              height: 10,
-                            ),
-                            Container(
-                              padding: EdgeInsets.all(5.0),
-                              child: TextFormField(
-                                decoration: InputDecoration(
-                                  border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                  labelText: 'Room Number',
-                                  hintText: 'Enter your room number here',
-                                ),
-                              ),
-                            ),
-                            SizedBox(
-                              height: 10,
-                            ),
                             Container(
                               padding: EdgeInsets.all(5.0),
                               child: DropdownButtonFormField2(
@@ -204,12 +163,11 @@ class _registerComplaintState extends State<registerComplaint> {
                     ],
                   ),
                 ),
-              ],
+            ],
             ),
           ),
         ),
       ),
     );
-    ;
   }
 }
