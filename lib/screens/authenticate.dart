@@ -1,3 +1,4 @@
+import 'package:bhawan_app/screens/adminRegistration.dart';
 import 'package:bhawan_app/screens/clientLogin.dart';
 import 'package:bhawan_app/screens/clientRegistration.dart';
 import 'package:flutter/material.dart';
@@ -11,15 +12,28 @@ class Authenticate extends StatefulWidget {
 
 class _AuthenticateState extends State<Authenticate> {
 
-  bool showSignIn = true;
-  void toggle(){
-    setState(() => showSignIn = !showSignIn);
+  int showSignIn = 0;
+  void toggle(int i){
+    setState(() => showSignIn = i);
   }
 
 
   @override
   Widget build(BuildContext context) {
-    print(showSignIn);
-    return showSignIn ? LoginPage(toggle: toggle) : RegistrationPage(toggle: toggle);
+    // print(showSignIn);
+    if(showSignIn == 0) {
+      return LoginPage(toggle: toggle);
+    }
+    else if(showSignIn == 1) {
+      return RegistrationPage(toggle: toggle);
+    }
+    else if(showSignIn==2){
+      return RegistrationPageAdmin(toggle: toggle);
+    }
+    else{
+      return Container();
+    }
+
+    // return showSignIn ? LoginPage(toggle: toggle) : RegistrationPage(toggle: toggle);
   }
 }

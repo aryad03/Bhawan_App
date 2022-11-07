@@ -42,8 +42,7 @@ class DataBaseLaundry{
   }
 
   Stream<List<UserLaundry>> get users{
-    final CollectionReference list = laundrymanagement.doc('new').collection(bhawan!);
-    return list.snapshots().map(_convert);
+    return laundrymanagement.doc('new').collection(bhawan!).snapshots().map(_convert);
   }
 }
 

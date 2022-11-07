@@ -13,12 +13,12 @@ var bhawan = ['Rajiv Bhawan', 'Rajendra Bhawan', 'Cautley Bhawan', 'Kasturba Bha
 String? selectedValue;
 var type = ['Student','Laundry Man', 'Guard'];
 String? accountType;
-bool showvalue=false;
+bool showvalue = false;
 final _formKey = GlobalKey<FormState>();
 
 class RegistrationPage extends StatefulWidget {
 
-  final Function toggle;
+  final void Function(int) toggle;
   RegistrationPage({required this.toggle});
 
   @override
@@ -52,7 +52,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
         backgroundColor: kBackgroundColor,
         appBar: AppBar(
           title: Text(
-            'Registration Page',
+            'Student Registration Page',
           ),
           centerTitle: true,
           backgroundColor: kPrimaryColor,
@@ -94,7 +94,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                                   borderRadius: BorderRadius.circular(10),
                                 ),
                                 labelText: 'Name',
-                                hintText: 'Enter your username here',
+                                hintText: 'Enter your name here',
                               ),
                               validator: (val) => (val!.isEmpty) ? 'Enter your name' : null,
                               onChanged: (val){
@@ -240,57 +240,57 @@ class _RegistrationPageState extends State<RegistrationPage> {
                               obscureText: true,
                             ),
                           ),
-                          Container(
-                            padding: EdgeInsets.all(15.0),
-                            child: DropdownButtonFormField2(
-                              decoration: InputDecoration(
-                                isDense: true,
-                                contentPadding: EdgeInsets.zero,
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                              ),
-                              isExpanded: true,
-                              hint: const Text(
-                                'Select Your role',),
-                              icon: const Icon(
-                                Icons.arrow_drop_down,
-                                color: Colors.black45,
-                              ),
-                              iconSize: 30,
-                              buttonHeight: 60,
-                              buttonPadding: const EdgeInsets.only(left: 15, right: 15),
-                              dropdownDecoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              items: type
-                                  .map((itema) =>
-                                  DropdownMenuItem<String>(
-                                    value: itema,
-                                    child: Text(
-                                      itema,
-                                      style: const TextStyle(
-                                        fontSize: 14,
-                                      ),
-                                    ),
-                                  ))
-                                  .toList(),
-                              validator: (valued) {
-                                if (valued == null) {
-                                  return 'Please select your role.';
-                                }
-                              },
-                              onChanged: (valued) {
-                                //Do something when changing the item if you want.
-                                setState(() {
-                                  _account = valued! as String;
-                                });
-                              },
-                              onSaved: (valued) {
-                                accountType= valued.toString();
-                              },
-                            ),
-                          ),
+                          // Container(
+                          //   padding: EdgeInsets.all(15.0),
+                          //   child: DropdownButtonFormField2(
+                          //     decoration: InputDecoration(
+                          //       isDense: true,
+                          //       contentPadding: EdgeInsets.zero,
+                          //       border: OutlineInputBorder(
+                          //         borderRadius: BorderRadius.circular(10),
+                          //       ),
+                          //     ),
+                          //     isExpanded: true,
+                          //     hint: const Text(
+                          //       'Select Your role',),
+                          //     icon: const Icon(
+                          //       Icons.arrow_drop_down,
+                          //       color: Colors.black45,
+                          //     ),
+                          //     iconSize: 30,
+                          //     buttonHeight: 60,
+                          //     buttonPadding: const EdgeInsets.only(left: 15, right: 15),
+                          //     dropdownDecoration: BoxDecoration(
+                          //       borderRadius: BorderRadius.circular(10),
+                          //     ),
+                          //     items: type
+                          //         .map((itema) =>
+                          //         DropdownMenuItem<String>(
+                          //           value: itema,
+                          //           child: Text(
+                          //             itema,
+                          //             style: const TextStyle(
+                          //               fontSize: 14,
+                          //             ),
+                          //           ),
+                          //         ))
+                          //         .toList(),
+                          //     validator: (valued) {
+                          //       if (valued == null) {
+                          //         return 'Please select your role.';
+                          //       }
+                          //     },
+                          //     onChanged: (valued) {
+                          //       //Do something when changing the item if you want.
+                          //       setState(() {
+                          //         _account = valued! as String;
+                          //       });
+                          //     },
+                          //     onSaved: (valued) {
+                          //       accountType= valued.toString();
+                          //     },
+                          //   ),
+                          // ),
                           Container(
                             width: size.width * 0.3,
                             margin: EdgeInsets.all(0),
@@ -301,7 +301,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                                   setState(() {
                                     _loading = true;
                                   });
-                                  dynamic result = await _auth.register(_email, _password, _name, _enrollment_number, _room_number, _bhawan_selected, _branch);
+                                  dynamic result = await _auth.register(_email, _password, _name, _enrollment_number, _room_number, _bhawan_selected, _branch,'Student');
                                   if(result == null){
                                     setState(() {
                                       _error = 'Enter valid email';
@@ -322,7 +322,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                             width: size.width * 0.3,
                             child: ElevatedButton(
                               onPressed: () {
-                                widget.toggle();
+                                widget.toggle(0);
                               },
                               child: Text('Sign In'),
                               style: ElevatedButton.styleFrom(

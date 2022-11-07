@@ -10,8 +10,9 @@ class UserDataGlobal{
   final String enrollment_number;
   final String email;
   final String branch;
+  final String role;
 
-  UserDataGlobal({required this.email, required this.name, required this.bhawan, required this.room_number, required this.enrollment_number, required this.branch});
+  UserDataGlobal({required this.email, required this.name, required this.bhawan, required this.room_number, required this.enrollment_number, required this.branch,required this.role});
 }
 
 class UserLaundry{

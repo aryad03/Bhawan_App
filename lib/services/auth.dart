@@ -15,12 +15,12 @@ class AuthService {
         .map(_userFromFirebaseUser);
   }
 
-  Future register(String email, String password, String name, String enrollment_number, String room_number, String bhawan, String branch) async{
+  Future register(String email, String password, String name, String enrollment_number, String room_number, String bhawan, String branch, String role) async{
     try{
       UserCredential result = await _auth.createUserWithEmailAndPassword(email: email, password: password);
       User? user = result.user;
       if(user != null){
-        await DatabaseService(uid: user.uid).updateUserData(email, name, bhawan, room_number, enrollment_number, branch);
+        await DatabaseService(uid: user.uid).updateUserData(email, name, bhawan, room_number, enrollment_number, branch,role);
         await DataBaseLaundry(uid: user.uid,bhawan: bhawan).updateData(name,room_number, '', false);
       }
       return _userFromFirebaseUser(user);

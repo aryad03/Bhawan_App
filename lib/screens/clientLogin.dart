@@ -8,7 +8,7 @@ import 'homePage.dart';
 
 class LoginPage extends StatefulWidget {
 
-  final Function toggle;
+  final void Function(int) toggle;
   LoginPage({required this.toggle});
 
   @override
@@ -136,9 +136,28 @@ class _LoginPageState extends State<LoginPage> {
                                 width: size.width * 0.3,
                                 child: ElevatedButton(
                                   onPressed: () {
-                                    widget.toggle();
+                                    widget.toggle(1);
                                   },
-                                  child: Text('Sign Up',style: TextStyle(fontSize: 15),),
+                                  child: Text('Sign Up as Student',style: TextStyle(fontSize: 15),),
+                                  style: ElevatedButton.styleFrom(
+                                    backgroundColor: Colors.purple,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Divider(
+                              thickness: 1.07,
+                              color: Colors.black,
+                            ),
+                            Container(
+                              padding: EdgeInsets.all(15.0),
+                              child: Container(
+                                width: size.width * 0.3,
+                                child: ElevatedButton(
+                                  onPressed: () {
+                                    widget.toggle(2);
+                                  },
+                                  child: Text('Sign Up as admin',style: TextStyle(fontSize: 15),),
                                   style: ElevatedButton.styleFrom(
                                     backgroundColor: Colors.purple,
                                   ),
