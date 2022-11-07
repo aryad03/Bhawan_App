@@ -1,12 +1,44 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:provider/provider.dart';
+
+import '../models/user_auth.dart';
 
 class ComplaintsInProgress extends StatelessWidget {
-  const ComplaintsInProgress({super.key});
+
+  // final void Function(int) functionchange;
+  //
+  // ComplaintsInProgress({required this.functionchange});
+
+  List<DataRow> _generateInProgress(List<UserComplain> user){
+    List<UserComplain> userinprogress=[];
+    // int j=0;
+    for(int i=0;i<user.length;i++){
+      if(user[i].inproccess==true){
+        userinprogress.add(user[i]);
+      }
+    }
+
+    List<DataRow> data = userinprogress.map<DataRow>(
+        (user){
+            return DataRow(
+                cells: [
+                  DataCell(Text(user.name)),
+                  DataCell(Text(user.complaintype)),
+                  DataCell(Text('date')),
+                  DataCell(Text(user.description))
+                ]
+            );
+        }
+    ).toList();
+    if(data.length==0) data=[];
+    return data;
+  }
 
   @override
   Widget build(BuildContext context) {
+    final usercomplain = Provider.of<List<UserComplain>>(context);
     return MaterialApp(
       home: Scaffold(
         body: Column(
@@ -58,39 +90,40 @@ class ComplaintsInProgress extends StatelessWidget {
                     label: Text('Description'),
                   ),
                 ],
-                rows: [
-                  DataRow(
-                    cells: [
-                      DataCell(Text('Arshik')),
-                      DataCell(Text('Mess')),
-                      DataCell(Text('08/12/22')),
-                      DataCell(Text('XYZ')),
-                    ],
-                  ),
-                  DataRow(
-                    cells: [
-                      DataCell(Text('Arshik')),
-                      DataCell(Text('Electrical')),
-                      DataCell(Text('08/12/22')),
-                      DataCell(Text('XYZ')),
-                    ],
-                  ),
-                  DataRow(
-                    cells: [
-                      DataCell(Text('Arshik')),
-                      DataCell(Text('Maintainance')),
-                      DataCell(Text('08/12/22')),
-                      DataCell(Text('XYZ')),
-                    ],
-                  ),
-                  DataRow(
-                    cells: [
-                      DataCell(Text('Arshik')),
-                      DataCell(Text('Electrical')),
-                      DataCell(Text('08/12/22')),
-                      DataCell(Text('XYZ')),
-                    ],
-                  ),
+                rows: _generateInProgress(usercomplain),
+                // rows: [
+                //   DataRow(
+                //     cells: [
+                //       DataCell(Text('Arshik')),
+                //       DataCell(Text('Mess')),
+                //       DataCell(Text('08/12/22')),
+                //       DataCell(Text('XYZ')),
+                //     ],
+                //   ),
+                //   DataRow(
+                //     cells: [
+                //       DataCell(Text('Arshik')),
+                //       DataCell(Text('Electrical')),
+                //       DataCell(Text('08/12/22')),
+                //       DataCell(Text('XYZ')),
+                //     ],
+                //   ),
+                //   DataRow(
+                //     cells: [
+                //       DataCell(Text('Arshik')),
+                //       DataCell(Text('Maintainance')),
+                //       DataCell(Text('08/12/22')),
+                //       DataCell(Text('XYZ')),
+                //     ],
+                //   ),
+                //   DataRow(
+                //     cells: [
+                //       DataCell(Text('Arshik')),
+                //       DataCell(Text('Electrical')),
+                //       DataCell(Text('08/12/22')),
+                //       DataCell(Text('XYZ')),
+                //     ],
+                //   ),
                   // DataRow(cells: [
                   //   DataCell(Text('Arshik')),
                   // DataCell(Text('Mess')),
@@ -99,7 +132,7 @@ class ComplaintsInProgress extends StatelessWidget {
 
                   // ],
                   // ),
-                ],
+                // ],
               ),
             ),
           ],

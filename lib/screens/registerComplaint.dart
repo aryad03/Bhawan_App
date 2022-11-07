@@ -7,8 +7,10 @@ import '../models/user_auth.dart';
 import '../utils/button.dart';
 
 class registerComplaint extends StatefulWidget {
-  const registerComplaint({super.key});
 
+  final void Function(int) functionchange;
+
+  registerComplaint({required this.functionchange});
   @override
   State<registerComplaint> createState() => _registerComplaintState();
 }
@@ -192,6 +194,7 @@ class _registerComplaintState extends State<registerComplaint> {
                             Button("Submit", () async {
                               if(_formKey.currentState!.validate()){
                                 print(selectedValue);
+                                widget.functionchange(0);
                                 await DataBaseComplain(uid: userdata.uid,bhawan: userData.bhawan).updateData(userData.name, userData.room_number, selectedValue!, description!, true);
                               }
                             }),

@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:bhawan_app/models/user_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class DataBaseComplain{
   String uid;
@@ -22,5 +23,15 @@ class DataBaseComplain{
       'description': description,
       'inprocess': inprocess,
     });
+  }
+
+  List<UserComplain> _convertToAbstractClass(QuerySnapshot snapshot){
+    return snapshot.docs.map((docs) {
+      return UserComplain(name: docs['name'],roomnumber: docs['roomnumber'],complaintype: docs['complaintype'],description: docs['description'],inproccess: docs['inprocess']);
+    }).toList();
+  }
+
+  Stream<List<UserComplain>> get userDataComplain{
+    return complainmanagement.doc(bhawan).collection(uid).snapshots().map(_convertToAbstractClass);
   }
 }
