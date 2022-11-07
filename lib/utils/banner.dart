@@ -87,7 +87,7 @@ class BannerPage extends StatelessWidget {
                             IconButton(
                               icon: Icon(Icons.meeting_room),
                               color: Colors.white, onPressed: () {
-                              Navigator.of(context).push(MaterialPageRoute(builder: (context)=> EnExPage()));
+                              Navigator.of(context).push(MaterialPageRoute(builder: (context)=> UserEntry()));
                             },
                             ),
                             'Entry-Exit',),

@@ -1,3 +1,4 @@
+import 'package:bhawan_app/services/database_entryexit.dart';
 import 'package:bhawan_app/services/database_laundry.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import '../models/user_auth.dart';
@@ -22,6 +23,7 @@ class AuthService {
       if(user != null){
         await DatabaseService(uid: user.uid).updateUserData(email, name, bhawan, room_number, enrollment_number, branch,role);
         await DataBaseLaundry(uid: user.uid,bhawan: bhawan).updateData(name,room_number, '', false);
+        await DatabaseEntryExit(uid: user.uid,Bhawan: bhawan).statusUserEntry(bhawan, false,false);
       }
       return _userFromFirebaseUser(user);
     }

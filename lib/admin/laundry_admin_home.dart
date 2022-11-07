@@ -54,7 +54,7 @@ class _LaundryAdminPageState extends State<LaundryAdminPage> {
                 scrollDirection: Axis.vertical,
                 child: Column(
                   children: users!.map((UserLaundry user) {
-                    print(user.roomnumber);
+                    // print(user.roomnumber);
                     if (user.inproccess == true) {
                       return LaundryAdminList(
                           user.name, user.roomnumber, user.clothes,
@@ -81,7 +81,22 @@ class _LaundryAdminPageState extends State<LaundryAdminPage> {
           ],
         );}
         else
-          return Container();
+          return Column(
+              children: [
+              LaundryBar(),
+        SizedBox(height: 35.0,),
+        Center(
+        child: Text(
+        'List of Students',
+        style: TextStyle(
+        fontSize: 25.0,
+        fontWeight: FontWeight.w400,
+        ),
+        ),
+        ),
+        SizedBox(height: 20.0,),
+        ]
+          );
       }
     );
   }

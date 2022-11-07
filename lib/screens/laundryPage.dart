@@ -6,7 +6,7 @@ import 'package:provider/provider.dart';
 import 'laundryHome.dart';
 import 'laundryStatus.dart';
 
-void main4() => runApp(TemplateUser());
+// void main4() => runApp(TemplateUser());
 
 class TemplateUser extends StatefulWidget {
   const TemplateUser({Key? key}) : super(key: key);

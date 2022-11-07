@@ -25,6 +25,24 @@ class UserLaundry{
   UserLaundry({required this.roomnumber,required this.clothes,required this.inproccess,required this.id,required this.name});
 }
 
+class UserEntryExit{
+  final String name;
+  final String enrollment_number;
+  final bool status;
+  final bool request;
+  final String id;
+
+  UserEntryExit({required this.name, required this.enrollment_number, required this.request, required this.id, required this.status});
+}
+
+class UserEntryExitStatus{
+  final String Bhawan;
+  final bool status;
+  final bool request;
+
+  UserEntryExitStatus({required this.Bhawan,required this.status,required this.request});
+}
+
 class UserComplain{
   final String name;
   final String roomnumber;
