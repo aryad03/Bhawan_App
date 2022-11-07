@@ -46,7 +46,7 @@ class BannerPage extends StatelessWidget {
             ),
           ),
         ], options: CarouselOptions(
-            height: size.height * .4,
+            height: size.height * .3,
             autoPlay: true,
             aspectRatio: 16/9,
             autoPlayCurve: Curves.fastOutSlowIn,
@@ -55,7 +55,7 @@ class BannerPage extends StatelessWidget {
             autoPlayAnimationDuration: Duration(milliseconds: 800)
         ), ),
         Container(
-          height: size.height*.4,
+          height: size.height*.59,
           width: size.width*.8,
           color: Colors.white,
             child: SingleChildScrollView(
@@ -125,7 +125,6 @@ class BannerPage extends StatelessWidget {
                               Navigator.pop(context);
                             },),
                             'Notice Board',),
-
                         ],
                       ),
                     ],
@@ -146,13 +145,13 @@ CardField(
     String title,
     ) {
   return Padding(
-    padding: const EdgeInsets.all(5),
+    padding: const EdgeInsets.fromLTRB(5, 5 , 5 , 20),
     child: Card(
         elevation: 0,
         shadowColor: Colors.white,
         child: SizedBox(
-            height: size.height * .1,
-            width: size.width * .3,
+            height: size.height * .09,
+            width: size.width * .28,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -161,13 +160,13 @@ CardField(
                   backgroundColor: color,
                   child: icon,
                   ),
-                SizedBox(height: 2),
+                SizedBox(height: 3),
                 Text(
                   title,
                   style: const TextStyle(
                   color: Colors.black,
                   fontWeight: FontWeight.w400,
-                  fontSize: 12),
+                  fontSize: 10),
                   ),
                 ]
             )

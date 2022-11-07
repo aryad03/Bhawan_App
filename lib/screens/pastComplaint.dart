@@ -43,19 +43,6 @@ class PastComplaints extends StatelessWidget {
         body: Column(
           children: [
             Container(
-              color: Color.fromARGB(255, 177, 175, 175),
-              padding: EdgeInsets.all(10),
-              height: 52,
-              width: MediaQuery.of(context).size.width,
-              child: SizedBox(
-                height: 52.0,
-                width: MediaQuery.of(context).size.width,
-                child: Text('Complain System',
-                    style:
-                    TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-              ),
-            ),
-            Container(
               height: 15,
               width: 400,
               child: SizedBox(),

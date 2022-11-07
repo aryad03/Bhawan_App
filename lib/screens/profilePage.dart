@@ -14,6 +14,7 @@ class ProfilePage extends StatelessWidget {
     return Container(
         child: Scaffold(
           appBar: AppBar(
+            elevation: 0,
             backgroundColor: Colors.purple,
             leading: Builder(
               builder: (BuildContext context) {
@@ -25,27 +26,28 @@ class ProfilePage extends StatelessWidget {
                 );
               },
             ),
-            title: Text("My Profile"),
           ),
           body:
           SingleChildScrollView(
             child: Container(
+              color: Colors.purple,
               width: size.width *1,
+              height: size.height *.894,
               child: Column(
                 children: [
                   Column(
                     children: [
-                      SizedBox(height: 20),
                       Container(
                           decoration: BoxDecoration(
                             border: Border.all(color: Colors.purple, width: 1.5),
                               shape: BoxShape.circle,
                               image: DecorationImage(image: AssetImage("images/default.jpg"))
-                          ), height: size.height* .3
+                          ), height: size.height* .2
                       ),
+                      SizedBox(height: 25),
                       SingleChildScrollView(
                         child: Container(
-                            padding: EdgeInsets.fromLTRB(15, 15 , 15, 0),
+                            padding: EdgeInsets.fromLTRB(15, 10 , 15, 0),
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
@@ -110,7 +112,7 @@ CardField(
     padding: const EdgeInsets.all(2),
     child: Card(
         child: SizedBox(
-            height: size.height * .1,
+            height: size.height * .09,
             width: size.width * .9,
             child: Center(
               child: ListTile(
@@ -121,16 +123,16 @@ CardField(
                 title: Text(
                   title,
                   style: const TextStyle(
-                      color: Colors.black54,
+                      color: Colors.black,
                       fontWeight: FontWeight.bold,
                       fontSize: 14),
                 ),
                 subtitle: Text(
                   subtitle,
                   style: const TextStyle(
-                      color: Colors.grey,
+                      color: Colors.blueGrey,
                       fontWeight: FontWeight.bold,
-                      fontSize: 13),
+                      fontSize: 11.5),
                 ),
               ),
             ))),

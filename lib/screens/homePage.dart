@@ -52,7 +52,7 @@ class TopBar extends StatelessWidget {
                   children: [
                     Container(
                       color: Colors.purple,
-                      height: size.height *.4,
+                      height: size.height *.25,
                       child: DrawerHeader(
                         padding: EdgeInsets.all(20),
                         child: Container(
