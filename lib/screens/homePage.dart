@@ -15,6 +15,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: TopBar(),
     );
   }
@@ -37,6 +38,8 @@ class TopBar extends StatelessWidget {
         child: MediaQuery(
           data: MediaQueryData(),
           child: MaterialApp(
+            debugShowCheckedModeBanner: false,
+
             home: Scaffold(
               appBar: AppBar(
                 title: Text('Bhawan App'),
