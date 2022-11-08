@@ -36,13 +36,61 @@ class BannerPage extends StatelessWidget {
             ],
             ),
             decoration: BoxDecoration(
-                color: Colors.blue[200]
+                color: Colors.blue[200],
             ),
           ),
           Container(
             decoration: BoxDecoration(
-                color: Colors.purple[200],
+                color: Colors.blue[200],
                 image: DecorationImage(image: AssetImage("images/Thomso.jpg"), fit: BoxFit.fill)
+            ),
+          ),
+          Container(
+            decoration: BoxDecoration(
+                color: Colors.blue[200],
+                image: DecorationImage(image: AssetImage("images/Cautley.jpg"), fit: BoxFit.fill)
+            ),
+          ),
+          Container(
+            decoration: BoxDecoration(
+                color: Colors.blue[200],
+                image: DecorationImage(image: AssetImage("images/ganga.webp"), fit: BoxFit.fill)
+            ),
+          ),
+          Container(
+            decoration: BoxDecoration(
+                color: Colors.blue[200],
+                image: DecorationImage(image: AssetImage("images/kb.jpg"), fit: BoxFit.fill)
+            ),
+          ),
+          Container(
+            decoration: BoxDecoration(
+                color: Colors.blue[200],
+                image: DecorationImage(image: AssetImage("images/Radhakrishnan.webp"), fit: BoxFit.fill)
+            ),
+          ),
+          Container(
+            decoration: BoxDecoration(
+                color: Colors.blue[200],
+                image: DecorationImage(image: AssetImage("images/rajendra.jpg"), fit: BoxFit.fill)
+            ),
+          ),
+          Container(
+            decoration: BoxDecoration(
+                color: Colors.blue[200],
+                image: DecorationImage(image: AssetImage("images/rajiv.jpg"), fit: BoxFit.fill)
+            ),
+          ),
+          Container(
+            decoration: BoxDecoration(
+                color: Colors.blue[200],
+                image: DecorationImage(image: AssetImage("images/jawahar.jfif"), fit: BoxFit.fill)
+            ),
+          ),
+          Container(
+            decoration: BoxDecoration(
+                color: Colors.blue[200],
+                image: DecorationImage(image: AssetImage("images/sb.jpg"), fit: BoxFit.fill)
             ),
           ),
         ], options: CarouselOptions(
@@ -61,12 +109,10 @@ class BannerPage extends StatelessWidget {
             child: SingleChildScrollView(
               child: Column(
                 children: [
+                  SizedBox(height: size.height*0.025,),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      SizedBox(
-                        height: size.height*0.05,
-                      ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -74,7 +120,7 @@ class BannerPage extends StatelessWidget {
                             size,
                             Colors.blue,
                             IconButton(
-                              icon: Icon(Icons.person),
+                              icon: Icon(Icons.person, size: 35,),
                               color: Colors.white, onPressed: () {
                               Navigator.of(context).push(MaterialPageRoute(builder: (context)=>ProfilePage()));
                             },
@@ -84,7 +130,7 @@ class BannerPage extends StatelessWidget {
                             size,
                             Colors.blue,
                             IconButton(
-                              icon: Icon(Icons.meeting_room),
+                              icon: Icon(Icons.meeting_room, size: 35,),
                               color: Colors.white, onPressed: () {
                               Navigator.of(context).push(MaterialPageRoute(builder: (context)=> UserEntry()));
                             },
@@ -99,7 +145,7 @@ class BannerPage extends StatelessWidget {
                           CardField(
                             size,
                             Colors.blue,
-                            IconButton(icon: Icon(Icons.report_problem), color: Colors.white, onPressed: () {
+                            IconButton(icon: Icon(Icons.report_problem, size: 35,), color: Colors.white, onPressed: () {
                               Navigator.of(context).push(MaterialPageRoute(builder: (context)=>TabsScreen()));
 
                             },),
@@ -107,7 +153,7 @@ class BannerPage extends StatelessWidget {
                           CardField(
                             size,
                             Colors.blue,
-                            IconButton(icon: Icon(Icons.water), color: Colors.white, onPressed: () {
+                            IconButton(icon: Icon(Icons.water, size: 35,), color: Colors.white, onPressed: () {
                               Navigator.of(context).push(MaterialPageRoute(builder: (context)=>TemplateUser()));
                             },),
                             'Laundry',),
@@ -119,14 +165,14 @@ class BannerPage extends StatelessWidget {
                           CardField(
                             size,
                             Colors.blue,
-                            IconButton( icon: Icon(Icons.dining), color: Colors.white, onPressed: () {
+                            IconButton( icon: Icon(Icons.dining, size: 35,), color: Colors.white, onPressed: () {
                               Navigator.of(context).push(MaterialPageRoute(builder: (context)=>MyApp()));
                             },),
                             'Mess Menu',),
                           CardField(
                             size,
                             Colors.blue,
-                            IconButton(icon: Icon(Icons.info), color: Colors.white, onPressed: () {
+                            IconButton(icon: Icon(Icons.info, size: 35,), color: Colors.white, onPressed: () {
                               Navigator.pop(context);
                             },),
                             'Notice Board',),
@@ -156,13 +202,14 @@ CardField(
         elevation: 0,
         shadowColor: Colors.white,
         child: SizedBox(
-            height: size.height * .1,
+            height: size.height * .14,
             width: size.width * .43,
             child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   CircleAvatar(
+                    radius: 35.0,
                     backgroundColor: color,
                     child: icon,
                   ),
