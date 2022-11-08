@@ -1,3 +1,4 @@
+import 'package:bhawan_app/utils/loading.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -38,7 +39,8 @@ class ComplaintsInProgress extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final usercomplain = Provider.of<List<UserComplain>>(context);
+    final usercomplain = Provider.of<List<UserComplain>?>(context);
+    if(usercomplain!=null){
     return MaterialApp(
       home: Scaffold(
         body: Column(
@@ -143,6 +145,9 @@ class ComplaintsInProgress extends StatelessWidget {
           ],
         ),
       ),
-    );
+    );}
+    else{
+      return Loading();
+    }
   }
 }
