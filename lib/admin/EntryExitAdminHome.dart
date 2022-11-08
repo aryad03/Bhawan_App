@@ -23,6 +23,7 @@ class _Admin_EntryState extends State<Admin_Entry> {
 
     final user = Provider.of<UserAuth?>(context);
     final userData = Provider.of<UserDataGlobal>(context);
+    Size size = MediaQuery.of(context).size;
     // final userData = Provider.of<UserDataGlobal>(context);
     return StreamBuilder<List<UserEntryExit>>(
         stream: DatabaseEntryExit(uid: user!.uid,Bhawan: userData.bhawan).users,
@@ -32,47 +33,90 @@ class _Admin_EntryState extends State<Admin_Entry> {
             if(users!.length==0) users=[];
             return MaterialApp(
               theme: ThemeData(
-                primarySwatch: Colors.purple,
               ),
               home: Scaffold(
-                backgroundColor: Colors.white,
+                backgroundColor: Color(0xFF73AEF5),
                 appBar: AppBar(
-                    title: Text(
-                      'Entry Exit',
-                    ),
-                    centerTitle: true,
-                    backgroundColor: Colors.purple,
-                    actions: <Widget>[
-                      TextButton.icon(
-                        icon: Icon(Icons.person),
-                        label: Text('logout',style: TextStyle(color: Colors.black)),
-                        onPressed: () async {
-                          await _auth.signOut();
-                        },
-                      ),]
+                  title: Text("List of students"),
+                  elevation: 0,
+                  backgroundColor: Color(0xFF73AEF5),
+
                 ),
-                body: Center(
+                  drawer: Drawer(
+                      child:
+                      Stack(
+                        children: [
+                        Container(
+                        height: double.infinity,
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                            begin: Alignment.topCenter,
+                            end: Alignment.bottomCenter,
+                            colors: [
+                              Color(0xFF73AEF5),
+                              Color(0XFF61A4F1),
+                              Color(0xFF478DE0 ),
+                              Color(0xFF398AE5),
+                            ],
+                            stops: [0.1, 0.4, 0.7, 0.9],
+                          ),
+                        ),
+                      ),
+                      Container(
+                        height: double.infinity,
+                        child: Column(
+                          children:[
+                        DrawerHeader(
+                        child: Container(
+                        height: size.height* .18,
+                          decoration: BoxDecoration(
+
+                              color: Colors.white,
+                              border: Border.all(color: Colors.white, width: 1.5),
+                              shape: BoxShape.circle,
+                              image: DecorationImage(image: AssetImage("images/user.webp"))),
+                        ),
+                      ),
+                      Container(
+                          child:ListTile(
+                            leading: Icon(Icons.person,color: Colors.white,),
+                            title: Text(userData.name, style: TextStyle(
+                                color: Colors.white
+                            ),),
+                          )
+                      ),
+                      Container(
+                        child: ListTile(
+                            leading: Icon(Icons.email,color: Colors.white,),
+                            title: Text(userData.email, style: TextStyle(
+                                color: Colors.white
+                            ),
+                            )
+                        ),
+                      ),
+                      Container(
+                        child: ListTile(
+                            leading: Icon(Icons.logout,color: Colors.white,),
+                            title: Text('Log out', style: TextStyle(
+                                color: Colors.white
+                            ),),
+                            onTap: () async{
+                              await _auth.signOut();
+                            }
+                        ),
+                      ),
+                          ],
+                        )
+                      ),
+                      ],
+            )
+          ),
+
+
+                      body: Center(
                   child: Column(
-                    // children: [
-                    //   // Container(
-                    //   //   child:Text(userData.name),
-                    //   // ),
-                    //   // Container(
-                    //   //   child: Text(userData.enrollment_number),
-                    //   // ),
-                    //   Container(
-                    //     child: Row(
-                    //       children: [
-                    //         Container(
-                    //           child: Container(
-                    //             width: 205,
-                    //             child: Button(
-                    //               'Allow Request',
-                    //                 () {},
-                    //             ),
-                    //           ),
-                    //         ),
-                    //       ],
+
                     children: users.map((UserEntryExit user) {
                       // print(user.roomnumber);
                       if (user.request == true) {
@@ -101,25 +145,13 @@ class _Admin_EntryState extends State<Admin_Entry> {
           else {
             return MaterialApp(
               theme: ThemeData(
-                primarySwatch: Colors.purple,
               ),
               home: Scaffold(
-                backgroundColor: Colors.white,
+                backgroundColor: Color(0xFF73AEF5),
                 appBar: AppBar(
                     title: Text(
                       'Entry Exit',
                     ),
-                    centerTitle: true,
-                    backgroundColor: Colors.purple,
-                    actions: <Widget>[
-                      TextButton.icon(
-                        icon: Icon(Icons.person),
-                        label: Text('logout',
-                          style: TextStyle(color: Colors.black),),
-                        onPressed: () async {
-                          await _auth.signOut();
-                        },
-                      ),]
                 ),
                 body: Center(
 
