@@ -11,12 +11,16 @@ import 'package:provider/provider.dart';
 
 import 'homePage.dart';
 
-var bhawan = ['Rajiv Bhawan', 'Rajendra Bhawan', 'Cautley Bhawan', 'Kasturba Bhawan', 'Jawahar Bhawan', 'Ravindra Bhawan', 'Sarojani Bhawan', 'Govind Bhawan', 'Ganga Bhawan', 'Radhakrishna Bhawan', 'VigyanKunj'];
+var bhawan = ['Rajiv Bhawan', 'Rajendra Bhawan', 'Cautley Bhawan', 'Kasturba Bhawan', 'Jawahar Bhawan', 'Ravindra Bhawan', 'Sarojini Bhawan', 'Govind Bhawan', 'Ganga Bhawan', 'Radhakrishna Bhawan', 'VigyanKunj'];
 String? selectedValue;
 
-void mainEntry() => Entry_Exit_Home();
+// void mainEntry() => Entry_Exit_Home();
 class Entry_Exit_Home extends StatefulWidget {
   // final user = Provider.of<User>(context);
+  final void Function(int) toggle;
+  Entry_Exit_Home({required this.toggle});
+
+
   @override
   State<Entry_Exit_Home> createState() => _Entry_Exit_HomeState();
 }
@@ -51,8 +55,8 @@ class _Entry_Exit_HomeState extends State<Entry_Exit_Home> {
               home: Scaffold(
 
                 body: Stack(
-
-                  children: [Container(
+                  children: [
+                    Container(
                     alignment: Alignment.center,
                     height: double.infinity,
                     width: double.infinity,
@@ -70,154 +74,358 @@ class _Entry_Exit_HomeState extends State<Entry_Exit_Home> {
                       ),
                     ),
                   ),
-                    Container(
+                Container(
+                  height: double.infinity,
+                  child: Form(
+                    key: _formKey,
+                    child: SingleChildScrollView(
+                      physics: AlwaysScrollableScrollPhysics(),
                       padding: EdgeInsets.symmetric(
-                        horizontal: size.height * 0.02,
-                        vertical: size.height *.01,
+                        horizontal: 40.0,
+                        vertical: 120.0,
                       ),
-                      child: SingleChildScrollView(
-
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.stretch,
-                          children: [
-                            SingleChildScrollView(
-                              child: Column(
-                                  children: [
-                                    Container(
-                                        child: Form(
-                                          key: _formKey,
-                                          child: Container(
-                                            padding: EdgeInsets.fromLTRB(
-                                                15.0, 165.0, 15.0, 15.0),
-                                            child: Text(userData.name),
-                                            /*child: TextField(
-                                        decoration: InputDecoration(
-                                          border: OutlineInputBorder(
-                                            borderRadius: BorderRadius.circular(10),
-                                          ),
-                                          labelText: 'Username',
-                                          hintText: 'Enter your username here',
-                                        ),
-                                      ),*/
-                                          ),
-                                        )
-                                    ),
-                                    Container(
-                                        child: Container(
-                                          padding: EdgeInsets.fromLTRB(
-                                              15.0, 20.0, 15.0, 30.0),
-                                          child: Text(userData.enrollment_number),
-                                          /*child: TextField(
-                                      decoration: InputDecoration(
-                                        border: OutlineInputBorder(
-                                          borderRadius: BorderRadius.circular(10),
-                                        ),
-                                        labelText: 'Enrollment Number',
-                                        hintText: 'Enter your enrollment number here',
-                                      ),
-                                    ),*/
-                                        )
-                                    ),
-                        Container(
-
-                          alignment: Alignment.center,
-                          decoration: kBoxDecorationStyle,
-                          height: 60.0,
-                          // padding: EdgeInsets.all(15.0),
-                          child: DropdownButtonFormField2(
-                            decoration: InputDecoration(
-                              border: InputBorder.none,
-                              // contentPadding: EdgeInsets.only(top:14.0),
-                              prefixIcon: Icon(
-                                Icons.other_houses,
-                                color: Colors.white,
-                              ),
-                              hintText: 'Enter your bhawan',
-                              hintStyle: kHintTextStyle,
-                            ),
-                            isExpanded: true,
-                            icon: const Icon(
-                              Icons.arrow_drop_down,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            'Entry-Exit System',
+                            style: TextStyle(
                               color: Colors.white,
+                              fontFamily: 'OpenSans',
+                              fontSize: 30.0,
+                              fontWeight: FontWeight.bold,
                             ),
-                            iconSize: 30,
-                            buttonHeight: 60,
-                            buttonPadding: const EdgeInsets.only(left: 15, right: 15),
-                            items: bhawan
-                                .map((item) =>
-                                DropdownMenuItem<String>(
-                                  value: item,
-                                  child: Text(
-                                    item,
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 14,
-                                    ),
-                                  ),
-                                ))
-                                .toList(),
-                            validator: (value) {
-                              if (value == null) {
-                                return 'Please select your bhawan.';
-                              }
-                            },
-                            dropdownDecoration: BoxDecoration(
-                              color: Color(0xFF6CA8F1),
-                            ),
-                            onChanged: (value) {
-                              //Do something when changing the item if you want.
-                              setState(() {
-                                bhawan_selected = value! as String;
-                              });
-                            },
-                            onSaved: (value) {
-                              selectedValue = value.toString();
-                            },
                           ),
-                        ),
-                                    Container(
-                                      padding: EdgeInsets.all(75.0),
-                                    ),
-                                    Container(
-                                      child: Row(
-                                        children: [
-                                          Container(
-                                            child: Container(
-                                              width: 205,
-                                              child: Button(
-                                                  comment,
-                                                      () async {
-                                                    if (_formKey.currentState!
-                                                        .validate()) {
-                                                      await DatabaseEntryExit(
-                                                          uid: user.uid,
-                                                          Bhawan: bhawan_selected)
-                                                          .updateDataEntry(
-                                                        userData.name,
-                                                        userData.enrollment_number,
-                                                        userstatus.status, true,);
-                                                      await DatabaseEntryExit(
-                                                          uid: user.uid,
-                                                          Bhawan: bhawan_selected)
-                                                          .statusUserEntry(
-                                                          bhawan_selected,
-                                                          userstatus.status,true);
-                                                      // StatusEntryExit(user.uid,bhawan_selected);
-                                                    }
-                                                  }
-                                              ),
-                                            ),
-                                          ),
-                                        ],
+                          SizedBox(
+                            height: 30.0,
+                          ),
+                      Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Name : ${userData.name}',
+                              style: kLabelStyle,
+                            ),
+                            SizedBox(
+                              height: 10.0,
+                            ),
+                            Text(
+                              'Enrollment number : ${userData.enrollment_number}',
+                              style: kLabelStyle,
+                            ),
+                            SizedBox(
+                              height: 30.0,
+                            ),
+                            Text(
+                              'Select Bhawan',
+                              style: kLabelStyle,
+                            ),
+                            SizedBox(
+                              height: 10.0,
+                            ),
+                            Container(
+                              alignment: Alignment.center,
+                              decoration: kBoxDecorationStyle,
+                              height: 60.0,
+                              // padding: EdgeInsets.all(15.0),
+                              child: DropdownButtonFormField2(
+                                value: bhawan_selected,
+                                decoration: InputDecoration(
+                                  border: InputBorder.none,
+                                  // contentPadding: EdgeInsets.only(top:14.0),
+                                  prefixIcon: Icon(
+                                    Icons.other_houses,
+                                    color: Colors.white,
+                                  ),
+                                  hintText: 'Enter your bhawan',
+                                  hintStyle: kHintTextStyle,
+                                ),
+                                isExpanded: true,
+                                icon: const Icon(
+                                  Icons.arrow_drop_down,
+                                  color: Colors.white,
+                                ),
+                                iconSize: 30,
+                                buttonHeight: 60,
+                                buttonPadding: const EdgeInsets.only(left: 15, right: 15),
+                                items: bhawan
+                                    .map((item) {
+
+                                  if(userstatus.status==false||userstatus.Bhawan==item){
+                                    return DropdownMenuItem<String>(
+                                      value: item,
+                                      child: Text(
+                                        item,
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 14,
+                                        ),
                                       ),
-                                    ),
-                                  ]
+                                    );}
+                                  else{
+                                    return DropdownMenuItem<String>(
+                                      value: item,
+                                      child: Text(
+                                        item,
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 14,
+                                        ),
+                                      ),
+                                      enabled: false,
+                                    );
+                                  }
+                                }
+                                )
+                                    .toList(),
+                                validator: (value) {
+                                  if (value == null) {
+                                    return 'Please select your bhawan.';
+                                  }
+                                },
+                                dropdownDecoration: BoxDecoration(
+                                  color: Color(0xFF6CA8F1),
+                                ),
+                                onChanged: (value) {
+                                  //Do something when changing the item if you want.
+                                  setState(() {
+                                    bhawan_selected = value! as String;
+                                  });
+                                },
+                                onSaved: (value) {
+                                  selectedValue = value.toString();
+                                },
                               ),
                             ),
-                          ],
-                        ),
+                          ]
                       ),
-                    )
+                          SizedBox(
+                            height: 30.0,
+                          ),
+                          Container(
+                            // padding: EdgeInsets.symmetric(vertical: 25.0),
+                            width: double.infinity,
+                            // alignment: Alignment.centerRight,
+                            child: ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.white,
+                                shape: new RoundedRectangleBorder(
+                                  borderRadius: new BorderRadius.circular(30.0),
+                                ),
+                                padding: EdgeInsets.symmetric(vertical: 15),
+                              ),
+                              onPressed: () async {
+                                if (_formKey.currentState!
+                                    .validate()) {
+                                  widget.toggle(1);
+                                  await DatabaseEntryExit(
+                                      uid: user.uid,
+                                      Bhawan: bhawan_selected)
+                                      .updateDataEntry(
+                                    userData.name,
+                                    userData.enrollment_number,
+                                    userstatus.status, true,);
+                                  await DatabaseEntryExit(
+                                      uid: user.uid,
+                                      Bhawan: bhawan_selected)
+                                      .statusUserEntry(
+                                      bhawan_selected,
+                                      userstatus.status,true);
+
+                                  // StatusEntryExit(user.uid,bhawan_selected);
+                                }
+                              },
+                              child: Text(
+                                comment,
+                                style: TextStyle(
+                                  color: Color(0XFF61A4F1),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ]
+          ),
+          ),
+                  ),
+                ),
+                    // Container(
+                    //   padding: EdgeInsets.symmetric(
+                    //     horizontal: size.height * 0.02,
+                    //     vertical: size.height *.01,
+                    //   ),
+                    //   child: SingleChildScrollView(
+                    //     child: Column(
+                    //       crossAxisAlignment: CrossAxisAlignment.stretch,
+                    //       children: [
+                    //         SingleChildScrollView(
+                    //           padding: EdgeInsets.symmetric(
+                    //             horizontal: 40.0,
+                    //             vertical: 120.0,
+                    //     ),
+                    //           child: Column(
+                    //               children: [
+                    //                 Text(
+                    //                     'Entry-Exit',
+                    //                     style: TextStyle(
+                    //                       color: Colors.white,
+                    //                       fontFamily: 'OpenSans',
+                    //                       fontSize: 30.0,
+                    //                       fontWeight: FontWeight.bold,
+                    //                     ),
+                    //                   ),
+                    //                 Container(
+                    //
+                    //                       child: Container(
+                    //                         padding: EdgeInsets.fromLTRB(
+                    //                             15.0, 165.0, 15.0, 15.0),
+                    //                         child: Text(userData.name),
+                    //                         /*child: TextField(
+                    //                     decoration: InputDecoration(
+                    //                       border: OutlineInputBorder(
+                    //                         borderRadius: BorderRadius.circular(10),
+                    //                       ),
+                    //                       labelText: 'Username',
+                    //                       hintText: 'Enter your username here',
+                    //                     ),
+                    //                   ),*/
+                    //                       ),
+                    //                 ),
+                    //                 Container(
+                    //                     child: Container(
+                    //                       padding: EdgeInsets.fromLTRB(
+                    //                           15.0, 20.0, 15.0, 30.0),
+                    //                       child: Text(userData.enrollment_number),
+                    //                       /*child: TextField(
+                    //                   decoration: InputDecoration(
+                    //                     border: OutlineInputBorder(
+                    //                       borderRadius: BorderRadius.circular(10),
+                    //                     ),
+                    //                     labelText: 'Enrollment Number',
+                    //                     hintText: 'Enter your enrollment number here',
+                    //                   ),
+                    //                 ),*/
+                    //                     )
+                    //                 ),
+                    //     Container(
+                    //
+                    //       alignment: Alignment.center,
+                    //       decoration: kBoxDecorationStyle,
+                    //       height: 60.0,
+                    //       // padding: EdgeInsets.all(15.0),
+                    //       child: DropdownButtonFormField2(
+                    //         value: bhawan_selected,
+                    //         decoration: InputDecoration(
+                    //           border: InputBorder.none,
+                    //           // contentPadding: EdgeInsets.only(top:14.0),
+                    //           prefixIcon: Icon(
+                    //             Icons.other_houses,
+                    //             color: Colors.white,
+                    //           ),
+                    //           hintText: 'Enter your bhawan',
+                    //           hintStyle: kHintTextStyle,
+                    //         ),
+                    //         isExpanded: true,
+                    //         icon: const Icon(
+                    //           Icons.arrow_drop_down,
+                    //           color: Colors.white,
+                    //         ),
+                    //         iconSize: 30,
+                    //         buttonHeight: 60,
+                    //         buttonPadding: const EdgeInsets.only(left: 15, right: 15),
+                    //         items: bhawan
+                    //             .map((item) {
+                    //
+                    //               if(userstatus.status==false||userstatus.Bhawan==item){
+                    //             return DropdownMenuItem<String>(
+                    //               value: item,
+                    //               child: Text(
+                    //                 item,
+                    //                 style: TextStyle(
+                    //                   color: Colors.white,
+                    //                   fontSize: 14,
+                    //                 ),
+                    //               ),
+                    //             );}
+                    //               else{
+                    //                 return DropdownMenuItem<String>(
+                    //                   value: item,
+                    //                   child: Text(
+                    //                     item,
+                    //                     style: TextStyle(
+                    //                       color: Colors.white,
+                    //                       fontSize: 14,
+                    //                     ),
+                    //                   ),
+                    //                   enabled: false,
+                    //                 );
+                    //               }
+                    //             }
+                    //         )
+                    //             .toList(),
+                    //         validator: (value) {
+                    //           if (value == null) {
+                    //             return 'Please select your bhawan.';
+                    //           }
+                    //         },
+                    //         dropdownDecoration: BoxDecoration(
+                    //           color: Color(0xFF6CA8F1),
+                    //         ),
+                    //         onChanged: (value) {
+                    //           //Do something when changing the item if you want.
+                    //           setState(() {
+                    //             bhawan_selected = value! as String;
+                    //           });
+                    //         },
+                    //         onSaved: (value) {
+                    //           selectedValue = value.toString();
+                    //         },
+                    //       ),
+                    //     ),
+                    //                 Container(
+                    //                   padding: EdgeInsets.all(75.0),
+                    //                 ),
+                    //                 Container(
+                    //                   child: Row(
+                    //                     children: [
+                    //                       Container(
+                    //                         child: Container(
+                    //                           width: 205,
+                    //                           child: Button(
+                    //                               comment,
+                    //                                   () async {
+                    //                                 if (_formKey.currentState!
+                    //                                     .validate()) {
+                    //                                   widget.toggle(1);
+                    //                                   await DatabaseEntryExit(
+                    //                                       uid: user.uid,
+                    //                                       Bhawan: bhawan_selected)
+                    //                                       .updateDataEntry(
+                    //                                     userData.name,
+                    //                                     userData.enrollment_number,
+                    //                                     userstatus.status, true,);
+                    //                                   await DatabaseEntryExit(
+                    //                                       uid: user.uid,
+                    //                                       Bhawan: bhawan_selected)
+                    //                                       .statusUserEntry(
+                    //                                       bhawan_selected,
+                    //                                       userstatus.status,true);
+                    //
+                    //                                   // StatusEntryExit(user.uid,bhawan_selected);
+                    //                                 }
+                    //                               }
+                    //                           ),
+                    //                         ),
+                    //                       ),
+                    //                     ],
+                    //                   ),
+                    //                 ),
+                    //               ]
+                    //           ),
+                    //         ),
+                    //       ],
+                    //     ),
+                    //   ),
+                    // )
                   ],
                 ),
               ),
@@ -240,10 +448,7 @@ class UserEntry extends StatefulWidget {
 
 class _UserEntryState extends State<UserEntry> {
 
-  List<Widget> _children = [
-    Entry_Exit_Home(),
-    StatusEntryExit()
-  ];
+
 
   int currentIndex = 0;
 
@@ -262,13 +467,20 @@ class _UserEntryState extends State<UserEntry> {
     //   return Loading();
     // else {
     //   if (userdata1.inproccess != false) currentIndex = 1;
+    List<Widget> _children = [
+      Entry_Exit_Home(toggle:onTab),
+      StatusEntryExit()
+    ];
 
     return MaterialApp(
       theme: ThemeData(
         scaffoldBackgroundColor: Color(0xFF73AEF5),
       ),
       home: Scaffold(
+        backgroundColor: Color(0xFF73AEF5),
         appBar: AppBar(
+          elevation: 0,
+          backgroundColor: Colors.transparent,
           leading: Builder(
             builder: (BuildContext context) {
               return IconButton(
@@ -281,7 +493,7 @@ class _UserEntryState extends State<UserEntry> {
               );
             },
           ),
-          title: Text("Entry Exit"),
+          // title: Text("Entry Exit"),
         ),
         body: _children[currentIndex],
         bottomNavigationBar: BottomNavigationBar(
