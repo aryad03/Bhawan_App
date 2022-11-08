@@ -268,7 +268,9 @@ class _UserEntryState extends State<UserEntry> {
         scaffoldBackgroundColor: Color(0xFF73AEF5),
       ),
       home: Scaffold(
+        backgroundColor: Color(0xFF73AEF5),
         appBar: AppBar(
+          elevation: 0,
           leading: Builder(
             builder: (BuildContext context) {
               return IconButton(
