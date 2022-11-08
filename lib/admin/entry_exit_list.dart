@@ -21,7 +21,7 @@ class _EntryExitAdminListState extends State<EntryExitAdminList> {
 
   @override
   Widget build(BuildContext context) {
-    String comment =widget.statususer?'Request Exit':'Request Entry';
+    String comment =widget.statususer?'Approve Exit':'Approve Entry';
     return Card(
       margin: const EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 0.0),
       child: Padding(
