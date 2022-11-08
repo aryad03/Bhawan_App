@@ -60,9 +60,9 @@ class ProfilePage extends StatelessWidget {
                       children: [
                         Container(
                             decoration: BoxDecoration(
-                              border: Border.all(color: Colors.blue, width: 1.5),
+                              border: Border.all(color: Colors.white, width: 1.5),
                                 shape: BoxShape.circle,
-                                image: DecorationImage(image: AssetImage("images/default.jpg"))
+                                image: DecorationImage(image: AssetImage("images/user.webp"))
                             ), height: size.height* .2
                         ),
                         SizedBox(height: 25),
@@ -137,7 +137,7 @@ CardField(
     child: Card(
         child: SizedBox(
             height: size.height * .09,
-            width: size.width * .28,
+            width: size.width * .8,
             child: Center(
               child: ListTile(
                 leading: CircleAvatar(

@@ -23,7 +23,7 @@ class _Entry_Denied_State extends State<Entry_Denied> {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        primarySwatch: Colors.purple,
+        scaffoldBackgroundColor: Color(0xFF73AEF5),
       ),
       home: Scaffold(
         backgroundColor: Colors.white,

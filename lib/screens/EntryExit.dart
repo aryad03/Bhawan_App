@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import '../models/user_auth.dart';
 import '../services/database_entryexit.dart';
 import '../utils/button.dart';
+import '../utils/constants.dart';
 import 'Request_Denied.dart';
 import 'package:provider/provider.dart';
 
@@ -32,6 +33,7 @@ class _Entry_Exit_HomeState extends State<Entry_Exit_Home> {
     final _formKey = GlobalKey<FormState>();
     // final userdata = Provider.of<UserEntryExit>(context);
     final userData = Provider.of<UserDataGlobal>(context);
+    Size size=MediaQuery.of(context).size;
     return StreamBuilder<UserEntryExitStatus>(
         stream: DatabaseEntryExit(uid: user.uid,Bhawan: userData.bhawan).status,
         builder: (context, snapshot) {
@@ -45,187 +47,178 @@ class _Entry_Exit_HomeState extends State<Entry_Exit_Home> {
             }
             return MaterialApp(
               theme: ThemeData(
-                primarySwatch: Colors.purple,
               ),
               home: Scaffold(
-                backgroundColor: Colors.white,
 
-                body: SingleChildScrollView(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      SingleChildScrollView(
+                body: Stack(
+
+                  children: [Container(
+                    alignment: Alignment.center,
+                    height: double.infinity,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                        colors: [
+                          Color(0xFF73AEF5),
+                          Color(0XFF61A4F1),
+                          Color(0xFF478DE0 ),
+                          Color(0xFF398AE5),
+                        ],
+                        stops: [0.1, 0.4, 0.7, 0.9],
+                      ),
+                    ),
+                  ),
+                    Container(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: size.height * 0.02,
+                        vertical: size.height *.01,
+                      ),
+                      child: SingleChildScrollView(
+
                         child: Column(
-                            children: [
-                              Container(
-                                  child: Form(
-                                    key: _formKey,
-                                    child: Container(
-                                      padding: EdgeInsets.fromLTRB(
-                                          15.0, 165.0, 15.0, 15.0),
-                                      child: Text(userData.name),
-                                      /*child: TextField(
-                                    decoration: InputDecoration(
-                                      border: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(10),
-                                      ),
-                                      labelText: 'Username',
-                                      hintText: 'Enter your username here',
-                                    ),
-                                  ),*/
-                                    ),
-                                  )
-                              ),
-                              Container(
-                                  child: Container(
-                                    padding: EdgeInsets.fromLTRB(
-                                        15.0, 20.0, 15.0, 30.0),
-                                    child: Text(userData.enrollment_number),
-                                    /*child: TextField(
-                                  decoration: InputDecoration(
-                                    border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(10),
-                                    ),
-                                    labelText: 'Enrollment Number',
-                                    hintText: 'Enter your enrollment number here',
-                                  ),
-                                ),*/
-                                  )
-                              ),
-                              Container(
-                                padding: EdgeInsets.all(15.0),
-                                child: DropdownButtonFormField2(
-                                  value: bhawan_selected,
-                                  decoration: InputDecoration(
-                                    //Add isDense true and zero Padding.
-                                    //Add Horizontal padding using buttonPadding and Vertical padding by increasing buttonHeight instead of add Padding here so that The whole TextField Button become clickable, and also the dropdown menu open under The whole TextField Button.
-                                    isDense: true,
-                                    contentPadding: EdgeInsets.zero,
-                                    border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(10),
-                                    ),
-                                    //Add more decoration as you want here
-                                    //Add label If you want but add hint outside the decoration to be aligned in the button perfectly.
-                                  ),
-                                  isExpanded: true,
-                                  hint: const Text(
-                                    'Select Your Bhawan',
-                                  ),
-                                  icon: const Icon(
-                                    Icons.arrow_drop_down,
-                                    color: Colors.black45,
-                                  ),
-                                  iconSize: 30,
-                                  buttonHeight: 60,
-                                  buttonPadding: const EdgeInsets.only(
-                                      left: 15, right: 15),
-                                  dropdownDecoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                  items: bhawan
-                                      .map((item) {
-                                    if (userstatus.status == false ||
-                                        userstatus.Bhawan == item) {
-                                      return DropdownMenuItem<String>(
-                                        value: item,
-                                        child: Text(
-                                          item,
-                                          style: const TextStyle(
-                                            fontSize: 14,
-                                          ),
-                                        ),
-                                      );
-                                    }
-                                    else {
-                                      return DropdownMenuItem<String>(
-                                        value: item,
-                                        child: Text(
-                                          item,
-                                          style: const TextStyle(
-                                            fontSize: 14,
-                                          ),
-                                        ),
-                                        onTap: () => null,
-                                        enabled: false,
-                                      );
-                                    }
-                                  }
-                                  )
-                                      .toList(),
-                                  validator: (value) {
-                                    if (value == null) {
-                                      return 'Please select your bhawan.';
-                                    }
-                                  },
-                                  onChanged: (value) {
-                                    //Do something when changing the item if you want.
-                                    setState(() {
-                                      if (userstatus!.status == false) {
-                                        bhawan_selected = value! as String;
-                                      }
-                                      else {
-                                        bhawan_selected = userstatus.Bhawan;
-                                        selectedValue = userstatus.Bhawan;
-                                      }
-                                    });
-                                  },
-                                  onSaved: (value) {
-                                    // selectedValue = value.toString();
-                                    if (userstatus.status == true) {
-                                      setState(() {
-                                        bhawan_selected = userstatus.Bhawan;
-                                      });
-                                    }
-                                    else {
-                                      setState(() {
-                                        bhawan_selected = value! as String;
-                                      });
-                                    }
-                                  },
-                                ),
-
-                              ),
-                              Container(
-                                padding: EdgeInsets.all(75.0),
-                              ),
-                              Container(
-                                child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: [
+                            SingleChildScrollView(
+                              child: Column(
                                   children: [
                                     Container(
-                                      child: Container(
-                                        width: 205,
-                                        child: Button(
-                                            comment,
-                                                () async {
-                                              if (_formKey.currentState!
-                                                  .validate()) {
-                                                await DatabaseEntryExit(
-                                                    uid: user.uid,
-                                                    Bhawan: bhawan_selected)
-                                                    .updateDataEntry(
-                                                  userData.name,
-                                                  userData.enrollment_number,
-                                                  userstatus.status, true,);
-                                                await DatabaseEntryExit(
-                                                    uid: user.uid,
-                                                    Bhawan: bhawan_selected)
-                                                    .statusUserEntry(
-                                                    bhawan_selected,
-                                                    userstatus.status,true);
-                                                // StatusEntryExit(user.uid,bhawan_selected);
-                                              }
-                                            }
+                                        child: Form(
+                                          key: _formKey,
+                                          child: Container(
+                                            padding: EdgeInsets.fromLTRB(
+                                                15.0, 165.0, 15.0, 15.0),
+                                            child: Text(userData.name),
+                                            /*child: TextField(
+                                        decoration: InputDecoration(
+                                          border: OutlineInputBorder(
+                                            borderRadius: BorderRadius.circular(10),
+                                          ),
+                                          labelText: 'Username',
+                                          hintText: 'Enter your username here',
                                         ),
+                                      ),*/
+                                          ),
+                                        )
+                                    ),
+                                    Container(
+                                        child: Container(
+                                          padding: EdgeInsets.fromLTRB(
+                                              15.0, 20.0, 15.0, 30.0),
+                                          child: Text(userData.enrollment_number),
+                                          /*child: TextField(
+                                      decoration: InputDecoration(
+                                        border: OutlineInputBorder(
+                                          borderRadius: BorderRadius.circular(10),
+                                        ),
+                                        labelText: 'Enrollment Number',
+                                        hintText: 'Enter your enrollment number here',
+                                      ),
+                                    ),*/
+                                        )
+                                    ),
+                        Container(
+
+                          alignment: Alignment.center,
+                          decoration: kBoxDecorationStyle,
+                          height: 60.0,
+                          // padding: EdgeInsets.all(15.0),
+                          child: DropdownButtonFormField2(
+                            decoration: InputDecoration(
+                              border: InputBorder.none,
+                              // contentPadding: EdgeInsets.only(top:14.0),
+                              prefixIcon: Icon(
+                                Icons.other_houses,
+                                color: Colors.white,
+                              ),
+                              hintText: 'Enter your bhawan',
+                              hintStyle: kHintTextStyle,
+                            ),
+                            isExpanded: true,
+                            icon: const Icon(
+                              Icons.arrow_drop_down,
+                              color: Colors.white,
+                            ),
+                            iconSize: 30,
+                            buttonHeight: 60,
+                            buttonPadding: const EdgeInsets.only(left: 15, right: 15),
+                            items: bhawan
+                                .map((item) =>
+                                DropdownMenuItem<String>(
+                                  value: item,
+                                  child: Text(
+                                    item,
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 14,
+                                    ),
+                                  ),
+                                ))
+                                .toList(),
+                            validator: (value) {
+                              if (value == null) {
+                                return 'Please select your bhawan.';
+                              }
+                            },
+                            dropdownDecoration: BoxDecoration(
+                              color: Color(0xFF6CA8F1),
+                            ),
+                            onChanged: (value) {
+                              //Do something when changing the item if you want.
+                              setState(() {
+                                bhawan_selected = value! as String;
+                              });
+                            },
+                            onSaved: (value) {
+                              selectedValue = value.toString();
+                            },
+                          ),
+                        ),
+                                    Container(
+                                      padding: EdgeInsets.all(75.0),
+                                    ),
+                                    Container(
+                                      child: Row(
+                                        children: [
+                                          Container(
+                                            child: Container(
+                                              width: 205,
+                                              child: Button(
+                                                  comment,
+                                                      () async {
+                                                    if (_formKey.currentState!
+                                                        .validate()) {
+                                                      await DatabaseEntryExit(
+                                                          uid: user.uid,
+                                                          Bhawan: bhawan_selected)
+                                                          .updateDataEntry(
+                                                        userData.name,
+                                                        userData.enrollment_number,
+                                                        userstatus.status, true,);
+                                                      await DatabaseEntryExit(
+                                                          uid: user.uid,
+                                                          Bhawan: bhawan_selected)
+                                                          .statusUserEntry(
+                                                          bhawan_selected,
+                                                          userstatus.status,true);
+                                                      // StatusEntryExit(user.uid,bhawan_selected);
+                                                    }
+                                                  }
+                                              ),
+                                            ),
+                                          ),
+                                        ],
                                       ),
                                     ),
-                                  ],
-                                ),
+                                  ]
                               ),
-                            ]
+                            ),
+                          ],
                         ),
                       ),
-                    ],
-                  ),
+                    )
+                  ],
                 ),
               ),
             );
@@ -272,7 +265,7 @@ class _UserEntryState extends State<UserEntry> {
 
     return MaterialApp(
       theme: ThemeData(
-        primarySwatch: Colors.purple,
+        scaffoldBackgroundColor: Color(0xFF73AEF5),
       ),
       home: Scaffold(
         appBar: AppBar(
@@ -292,11 +285,11 @@ class _UserEntryState extends State<UserEntry> {
         ),
         body: _children[currentIndex],
         bottomNavigationBar: BottomNavigationBar(
-          currentIndex: currentIndex,
-          backgroundColor: Colors.purple,
-          selectedItemColor: Colors.amber,
+          elevation: 0,
+          backgroundColor: Color(0xFF398AE5),
           unselectedItemColor: Colors.white,
-          type: BottomNavigationBarType.fixed,
+          selectedItemColor: Colors.amber,
+          currentIndex: currentIndex,
           // selectedItemColor: Colors.purple,
           items: <BottomNavigationBarItem>[
             BottomNavigationBarItem(

@@ -81,7 +81,7 @@ class _LaundryUserPageState extends State<LaundryUserPage> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                'Bhawan',
+                                'Number of clothes',
                                 style: kLabelStyle,
                               ),
                               SizedBox(
@@ -97,10 +97,10 @@ class _LaundryUserPageState extends State<LaundryUserPage> {
                                     border: InputBorder.none,
                                     // contentPadding: EdgeInsets.only(top:14.0),
                                     prefixIcon: Icon(
-                                      Icons.other_houses,
+                                      Icons.question_mark_outlined,
                                       color: Colors.white,
                                     ),
-                                    hintText: 'Enter your bhawan',
+                                    hintText: 'Select the number',
                                     hintStyle: kHintTextStyle,
                                   ),
                                   isExpanded: true,
