@@ -45,7 +45,7 @@ class _Entry_Exit_HomeState extends State<Entry_Exit_Home> {
           if(snapshot.hasData) {
             UserEntryExitStatus? userstatus = snapshot.data;
             // print(userstatus!.status);
-            if (userstatus!.status) {
+            if (userstatus!.status||userstatus!.request) {
               bhawan_selected = userstatus.Bhawan;
               comment = 'Request Exit';
             }
@@ -151,7 +151,7 @@ class _Entry_Exit_HomeState extends State<Entry_Exit_Home> {
                                 items: bhawan
                                     .map((item) {
 
-                                  if(userstatus.status==false||userstatus.Bhawan==item){
+                                  if(userstatus.status==false||userstatus.Bhawan==item||userstatus.request==false){
                                     return DropdownMenuItem<String>(
                                       value: item,
                                       child: Text(
