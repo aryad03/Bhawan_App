@@ -26,11 +26,6 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         home: Wrapper(),
       ),
-    // return MediaQuery(
-    //   data: MediaQueryData(),
-    //   child: MaterialApp(
-    //     home: LoginPage(),
-    //   ),
     );
   }
 }

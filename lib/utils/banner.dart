@@ -28,11 +28,11 @@ class BannerPage extends StatelessWidget {
             width: MediaQuery.of(context).size.width,
             child: AnimatedTextKit(animatedTexts: [
               TyperAnimatedText("Welcome!",
-              speed: Duration(milliseconds: 450),
-              textStyle: TextStyle(
-                color: Colors.white,
-                fontSize: 50,
-              ))
+                  speed: Duration(milliseconds: 450),
+                  textStyle: TextStyle(
+                    color: Colors.white,
+                    fontSize: 50,
+                  ))
             ],
             ),
             decoration: BoxDecoration(
@@ -46,7 +46,7 @@ class BannerPage extends StatelessWidget {
             ),
           ),
         ], options: CarouselOptions(
-            height: size.height * .3,
+            height: size.height * .4,
             autoPlay: true,
             aspectRatio: 16/9,
             autoPlayCurve: Curves.fastOutSlowIn,
@@ -55,9 +55,9 @@ class BannerPage extends StatelessWidget {
             autoPlayAnimationDuration: Duration(milliseconds: 800)
         ), ),
         Container(
-          height: size.height*.59,
-          width: size.width*.8,
-          color: Colors.white,
+            height: size.height*.4,
+            width: size.width*.8,
+            color: Colors.white,
             child: SingleChildScrollView(
               child: Column(
                 children: [
@@ -72,14 +72,14 @@ class BannerPage extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           CardField(
-                              size,
-                              Colors.blue,
-                              IconButton(
-                                icon: Icon(Icons.person),
-                                color: Colors.white, onPressed: () {
-                                Navigator.of(context).push(MaterialPageRoute(builder: (context)=>ProfilePage()));
-                              },
-                              ),
+                            size,
+                            Colors.blue,
+                            IconButton(
+                              icon: Icon(Icons.person),
+                              color: Colors.white, onPressed: () {
+                              Navigator.of(context).push(MaterialPageRoute(builder: (context)=>ProfilePage()));
+                            },
+                            ),
                             'Profile',),
                           CardField(
                             size,
@@ -104,20 +104,20 @@ class BannerPage extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                        CardField(
+                          CardField(
                             size,
                             Colors.amber,
                             IconButton(icon: Icon(Icons.water), color: Colors.white, onPressed: () {
-                            Navigator.of(context).push(MaterialPageRoute(builder: (context)=>TemplateUser()));
+                              Navigator.of(context).push(MaterialPageRoute(builder: (context)=>TemplateUser()));
                             },),
                             'Laundry',),
                           CardField(
-                              size,
-                              Colors.orange,
-                              IconButton( icon: Icon(Icons.dining), color: Colors.white, onPressed: () {
-                                Navigator.of(context).push(MaterialPageRoute(builder: (context)=>MyApp()));
-                              },),
-                              'Mess Menu',),
+                            size,
+                            Colors.orange,
+                            IconButton( icon: Icon(Icons.dining), color: Colors.white, onPressed: () {
+                              Navigator.of(context).push(MaterialPageRoute(builder: (context)=>MyApp()));
+                            },),
+                            'Mess Menu',),
                           CardField(
                             size,
                             Colors.teal,
@@ -125,6 +125,7 @@ class BannerPage extends StatelessWidget {
                               Navigator.pop(context);
                             },),
                             'Notice Board',),
+
                         ],
                       ),
                     ],
@@ -145,32 +146,32 @@ CardField(
     String title,
     ) {
   return Padding(
-    padding: const EdgeInsets.fromLTRB(5, 5 , 5 , 20),
-    child: Card(
+      padding: const EdgeInsets.all(5),
+      child: Card(
         elevation: 0,
         shadowColor: Colors.white,
         child: SizedBox(
-            height: size.height * .09,
-            width: size.width * .28,
+            height: size.height * .1,
+            width: size.width * .3,
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                CircleAvatar(
-                  backgroundColor: color,
-                  child: icon,
+                  CircleAvatar(
+                    backgroundColor: color,
+                    child: icon,
                   ),
-                SizedBox(height: 3),
-                Text(
-                  title,
-                  style: const TextStyle(
-                  color: Colors.black,
-                  fontWeight: FontWeight.w400,
-                  fontSize: 10),
+                  SizedBox(height: 2),
+                  Text(
+                    title,
+                    style: const TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.w400,
+                        fontSize: 12),
                   ),
                 ]
             )
-    ),
-   )
+        ),
+      )
   );
 }

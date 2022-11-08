@@ -23,8 +23,8 @@ class Decider extends StatelessWidget {
       return HomePage();
     else if(userData.role=='Laundry Man')
       return StreamProvider<List<UserLaundry>?>.value(
-        initialData: null,
-        value: DataBaseLaundry(uid: user!.uid,bhawan: userData.bhawan).users,
+          initialData: null,
+          value: DataBaseLaundry(uid: user!.uid,bhawan: userData.bhawan).users,
           child: TemplateAdmin()
       );
     else if(userData.role=='Guard') {
@@ -35,4 +35,3 @@ class Decider extends StatelessWidget {
     }
   }
 }
-

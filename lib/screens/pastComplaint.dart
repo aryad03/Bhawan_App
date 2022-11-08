@@ -38,7 +38,6 @@ class PastComplaints extends StatelessWidget {
   Widget build(BuildContext context) {
     final usercomplain = Provider.of<List<UserComplain>>(context);
     return MaterialApp(
-      title: 'Welcome to Flutter',
       home: Scaffold(
         body: Column(
           children: [
@@ -51,7 +50,12 @@ class PastComplaints extends StatelessWidget {
               alignment: Alignment.center,
               child: Text(
                 "Your past complaints",
-                style: TextStyle(fontSize: 20, color: Colors.black),
+                style: TextStyle(
+                  color: Color(0XFF61A4F1),
+                  fontFamily: 'OpenSans',
+                  fontSize: 30.0,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
             Container(

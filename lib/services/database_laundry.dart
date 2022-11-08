@@ -33,7 +33,7 @@ class DataBaseLaundry{
   }
 
   UserLaundry _docToUser(DocumentSnapshot snapshot){
-    print(snapshot.id);
+    // print(snapshot.id);
     return UserLaundry(roomnumber: snapshot['roomnumber'], clothes: snapshot['clothes'], inproccess: snapshot['inprocess'], id: snapshot.id,name: snapshot['name']);
   }
 
