@@ -14,12 +14,12 @@ class Button extends StatelessWidget {
       child: ElevatedButton(
         onPressed: press,
         style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all(kPrimaryColor),
+          backgroundColor: MaterialStateProperty.all(Colors.blue),
         ),
         child: Text(
           s,
           style: TextStyle(
-            color: kBackgroundColor,
+            color: Colors.white,
             fontSize: 20.0,
           ),
         ),

@@ -31,10 +31,8 @@ class StatusEntryExit extends StatelessWidget {
             sres=userentry!.request?s1:s;
             return MaterialApp(
               theme: ThemeData(
-                primarySwatch: Colors.purple,
               ),
               home: Scaffold(
-                backgroundColor: Colors.white,
                 body: Center(
                   child: Text(sres),
                 ),

@@ -159,75 +159,6 @@ class _registerComplaintState extends State<registerComplaint> {
                                     ),
                                   ],
                                 ),
-                                // Container(
-                                //   padding: EdgeInsets.all(15),
-                                //   width: MediaQuery.of(context).size.width,
-                                //   alignment: Alignment.topLeft,
-                                //   child: Column(
-                                //     children: [
-                                //       Container(
-                                //         padding: EdgeInsets.all(5.0),
-                                //         child: DropdownButtonFormField2(
-                                //           decoration: InputDecoration(
-                                //             isDense: true,
-                                //             contentPadding: EdgeInsets.all(5),
-                                //             fillColor: Colors.white,
-                                //             filled: true,
-                                //             enabledBorder: OutlineInputBorder(
-                                //               borderRadius: BorderRadius.circular(10),
-                                //               borderSide: BorderSide(
-                                //                 color: Colors.black,
-                                //               ),
-                                //             ),
-                                //             focusedBorder: OutlineInputBorder(
-                                //               borderSide: BorderSide(
-                                //                 color: Colors.brown,
-                                //               ),
-                                //             ),
-                                //           ),
-                                //           isExpanded: true,
-                                //           hint: const Text(
-                                //             'Select the type of complaint',
-                                //             style: TextStyle(
-                                //               color: Colors.purple,
-                                //             ),
-                                //           ),
-                                //           icon: const Icon(
-                                //             Icons.arrow_drop_down,
-                                //             color: Colors.black45,
-                                //           ),
-                                //           iconSize: 30,
-                                //           buttonHeight: 60,
-                                //           buttonPadding: const EdgeInsets.only(left: 15, right: 15),
-                                //           dropdownDecoration: BoxDecoration(
-                                //             borderRadius: BorderRadius.circular(10),
-                                //           ),
-                                //           items: item
-                                //               .map((item) =>
-                                //               DropdownMenuItem<String>(
-                                //                 value: item,
-                                //                 child: Text(
-                                //                   item,
-                                //                   style: const TextStyle(
-                                //                     fontSize: 14,
-                                //                   ),
-                                //                 ),
-                                //               ))
-                                //               .toList(),
-                                //           validator: (value) {
-                                //             if (value == null) {
-                                //               return 'Please select the type of complaint.';
-                                //             }
-                                //           },
-                                //           onChanged: (value) {
-                                //             //Do something when changing the item if you want.
-                                //             selectedValue = value.toString();
-                                //           },
-                                //           onSaved: (value) {
-                                //             selectedValue = value.toString();
-                                //           },
-                                //         ),
-                                //       ),
                                       SizedBox(
                                         height: 30,
                                       ),
@@ -329,9 +260,6 @@ class _registerComplaintState extends State<registerComplaint> {
         ]
                     ),
                   ),
-
-
-
 
 
     );

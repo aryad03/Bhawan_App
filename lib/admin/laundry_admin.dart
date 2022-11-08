@@ -16,22 +16,6 @@ class _TemplateAdminState extends State<TemplateAdmin> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-    preferredSize: const Size.fromHeight(50.0),
-    child: AppBar(
-      title: const Text('Bhawan App'),
-      leading: Icon(Icons.arrow_back),
-      backgroundColor: Colors.purple,
-        actions: <Widget>[
-      TextButton.icon(
-        icon: Icon(Icons.person),
-        label: Text('logout'),
-        onPressed: () async {
-          await _auth.signOut();
-        },
-      ),]
-    )
-    ),
       body: LaundryAdminPage(),
     );
   }

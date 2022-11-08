@@ -37,56 +37,86 @@ class TopBar extends StatelessWidget {
         child: MediaQuery(
           data: MediaQueryData(),
           child: MaterialApp(
-            theme: ThemeData(
-              primarySwatch: Colors.purple,
-            ),
             home: Scaffold(
               appBar: AppBar(
                 title: Text('Bhawan App'),
-                backgroundColor: Colors.purple,
+                backgroundColor: Color(0xFF73AEF5),
               ),
               drawer: Drawer(
                 child:
-                ListView(
-                  padding: EdgeInsets.all(0),
+                Stack(
                   children: [
                     Container(
-                      color: Colors.purple,
-                      height: size.height *.25,
-                      child: DrawerHeader(
-                        padding: EdgeInsets.all(20),
-                        child: Container(
-                            decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                image: DecorationImage(image: AssetImage("images/default.jpg"))
-                            ),
+                      height: double.infinity,
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
+                          colors: [
+                            Color(0xFF73AEF5),
+                            Color(0XFF61A4F1),
+                            Color(0xFF478DE0 ),
+                            Color(0xFF398AE5),
+                          ],
+                          stops: [0.1, 0.4, 0.7, 0.9],
                         ),
                       ),
                     ),
-                    ListTile(
-                      leading: Icon(Icons.person),
-                      title: Text(userData.name),
-                    ),
-                    ListTile(
-                      leading: Icon(Icons.email),
-                      title: Text(userData.email),
-                    ),
-                    Divider(
-                      thickness: 1.0,
-                    ),
-                    ListTile(
-                        leading: Icon(Icons.logout),
-                        title: Text('Log out'),
-                        onTap: () async{
-                         await _auth.signOut();
-                        }
-                    ),
-                  ],
+                    Container(
+                      height: double.infinity,
+                      child: Column(
+                        children:[
+                          DrawerHeader(
+                          child: Container(
+                            height: size.height* .18,
+                            decoration: BoxDecoration(
+
+                              color: Colors.white,
+                                border: Border.all(color: Colors.white, width: 1.5),
+                            shape: BoxShape.circle,
+                            image: DecorationImage(image: AssetImage("images/user.webp"))),
+                            ),
+                          ),
+                          Container(
+                            child:ListTile(
+                              leading: Icon(Icons.person,color: Colors.white,),
+                              title: Text(userData.name, style: TextStyle(
+                                  color: Colors.white
+                              ),),
+                            )
+                          ),
+                          Container(
+                            child: ListTile(
+                                leading: Icon(Icons.email,color: Colors.white,),
+                                title: Text(userData.email, style: TextStyle(
+                                    color: Colors.white
+                                ),
+                                )
+                            ),
+                          ),
+                           Container(
+                             child: ListTile(
+                                 leading: Icon(Icons.logout,color: Colors.white,),
+                                 title: Text('Log out', style: TextStyle(
+                                     color: Colors.white
+                                 ),),
+                                 onTap: () async{
+                                   await _auth.signOut();
+                                 }
+                             ),
+                           ),
+                          Container(
+                          )
+                           ]
                 ),
               ),
-              body: BannerPage(),
+              ]
             ),
-          ),
+        ),
+    body: BannerPage(),
+        ),
+    ),
         ),
       );
   }

@@ -27,6 +27,7 @@ class _LaundryAdminListState extends State<LaundryAdminList> {
               'Name: ${widget.name}',
               style: TextStyle(
                 fontSize: 20.0,
+                color: Colors.blue[800],
                 fontWeight: FontWeight.w500,
               ),
             ),
@@ -36,6 +37,7 @@ class _LaundryAdminListState extends State<LaundryAdminList> {
               'Room Number: ${widget.room_number}',
               style: TextStyle(
                 fontSize: 20.0,
+                color: Colors.blue[800],
                 fontWeight: FontWeight.w500,
               ),
             ),
@@ -43,11 +45,12 @@ class _LaundryAdminListState extends State<LaundryAdminList> {
               'No.of Clothes: ${widget.no_of_clothes}',
               style: TextStyle(
                 fontSize: 20.0,
+                color: Colors.blue[800],
                 fontWeight: FontWeight.w500,
               ),
             ),
             // Spacer(),
-            Button('Finished',widget.delete)
+            Button('Done',widget.delete)
           ],
         ),
       ),
