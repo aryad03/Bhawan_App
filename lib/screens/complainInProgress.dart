@@ -43,19 +43,19 @@ class ComplaintsInProgress extends StatelessWidget {
       home: Scaffold(
         body: Column(
           children: [
-            Container(
-              color: Color.fromARGB(255, 177, 175, 175),
-              padding: EdgeInsets.all(10),
-              height: 52,
-              width: MediaQuery.of(context).size.width,
-              child: SizedBox(
-                height: 52.0,
-                width: MediaQuery.of(context).size.width,
-                child: Text('Complain System',
-                    style:
-                    TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-              ),
-            ),
+            // Container(
+            //   color: Color.fromARGB(255, 177, 175, 175),
+            //   padding: EdgeInsets.all(10),
+            //   height: 52,
+            //   width: MediaQuery.of(context).size.width,
+            //   child: SizedBox(
+            //     height: 52.0,
+            //     width: MediaQuery.of(context).size.width,
+            //     child: Text('Complain System',
+            //         style:
+            //         TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+            //   ),
+            // ),
             Container(
               height: 15,
               width: MediaQuery.of(context).size.width,
@@ -65,7 +65,12 @@ class ComplaintsInProgress extends StatelessWidget {
               alignment: Alignment.center,
               child: Text(
                 "Complaints in progress",
-                style: TextStyle(fontSize: 20, color: Colors.black),
+                style: TextStyle(
+                  color: Color(0XFF61A4F1),
+                  fontFamily: 'OpenSans',
+                  fontSize: 30.0,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
             Container(

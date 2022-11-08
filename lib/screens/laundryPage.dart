@@ -41,11 +41,14 @@ class _TemplateStateUser extends State<TemplateUser> {
       if (userdata1.inproccess != false) currentIndex = 1;
 
       return MaterialApp(
-        theme: ThemeData(
-          primarySwatch: Colors.purple,
-        ),
+        // theme: ThemeData(
+        //   primarySwatch: Colors.purple,
+        // ),
         home: Scaffold(
+          backgroundColor: Color(0xFF73AEF5),
           appBar: AppBar(
+            elevation: 0,
+            backgroundColor: Colors.transparent,
             leading: Builder(
               builder: (BuildContext context) {
                 return IconButton(
@@ -58,12 +61,13 @@ class _TemplateStateUser extends State<TemplateUser> {
                 );
               },
             ),
-            title: Text("Laundry System"),
+            // title: Text("Laundry System"),
           ),
           body: _children[currentIndex],
           bottomNavigationBar: BottomNavigationBar(
+            elevation: 0,
             currentIndex: currentIndex,
-            backgroundColor: Colors.purple,
+            backgroundColor: Color(0xFF398AE5),
             selectedItemColor: Colors.amber,
             unselectedItemColor: Colors.white,
             type: BottomNavigationBarType.fixed,

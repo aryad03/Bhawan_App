@@ -1,3 +1,4 @@
+import 'package:bhawan_app/admin/EntryExitAdminHome.dart';
 import 'package:bhawan_app/admin/laundry_admin.dart';
 import 'package:bhawan_app/screens/homePage.dart';
 import 'package:bhawan_app/services/database_laundry.dart';
@@ -22,12 +23,15 @@ class Decider extends StatelessWidget {
       return HomePage();
     else if(userData.role=='Laundry Man')
       return StreamProvider<List<UserLaundry>?>.value(
-        initialData: null,
-        value: DataBaseLaundry(uid: user!.uid,bhawan: userData.bhawan).users,
+          initialData: null,
+          value: DataBaseLaundry(uid: user!.uid,bhawan: userData.bhawan).users,
           child: TemplateAdmin()
       );
-    else
+    else if(userData.role=='Guard') {
+      return Admin_Entry();
+    }
+    else{
       return Container();
+    }
   }
 }
-

@@ -43,8 +43,13 @@ class _TabsScreenState extends State<TabsScreen> {
     return StreamProvider<List<UserComplain>?>.value(
       initialData: null,
       value: DataBaseComplain(uid: userdata.uid, bhawan: userData.bhawan).userDataComplain,
-      child: Scaffold(appBar: AppBar(backgroundColor: Colors.purple,
-        leading: Builder(
+      child: Scaffold(
+        backgroundColor: Color(0xFF73AEF5),
+        appBar: AppBar(
+          elevation: 0,
+          backgroundColor: Colors.transparent,
+          centerTitle: true,
+          leading: Builder(
           builder: (BuildContext context) {
             return IconButton(
               icon: const Icon(Icons.arrow_back),
@@ -54,12 +59,13 @@ class _TabsScreenState extends State<TabsScreen> {
             );
           },
         ),
-        title: Text("Complain System"),
+        // title: Text("Complain System"),
       ),
         body: pages[selectedPageIndex]['page'],
         bottomNavigationBar: BottomNavigationBar(
+          elevation: 0,
           onTap: selectPage,
-          backgroundColor: Colors.purple,
+          backgroundColor: Color(0xFF398AE5),
           unselectedItemColor: Colors.white,
           selectedItemColor: Colors.amber,
           currentIndex: selectedPageIndex,
