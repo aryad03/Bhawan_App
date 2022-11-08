@@ -32,6 +32,8 @@ class _Admin_EntryState extends State<Admin_Entry> {
             List<UserEntryExit>? users = snapshot.data;
             if(users!.length==0) users=[];
             return MaterialApp(
+              debugShowCheckedModeBanner: false,
+
               theme: ThemeData(
               ),
               home: Scaffold(
@@ -144,6 +146,7 @@ class _Admin_EntryState extends State<Admin_Entry> {
           }
           else {
             return MaterialApp(
+                debugShowCheckedModeBanner: false,
               theme: ThemeData(
               ),
               home: Scaffold(

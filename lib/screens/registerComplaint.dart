@@ -39,6 +39,8 @@ class _registerComplaintState extends State<registerComplaint> {
     final userdata = Provider.of<UserAuth>(context);
     final userData = Provider.of<UserDataGlobal>(context);
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
+
       theme: ThemeData(
         // primarySwatch: Colors.grey,
         scaffoldBackgroundColor: Color(0xFF73AEF5),
@@ -200,20 +202,7 @@ class _registerComplaintState extends State<registerComplaint> {
                               ),
                             ],
                           ),
-                                      // Container(
-                                      //   padding: EdgeInsets.all(5),
-                                      //   child: TextFormField(
-                                      //     validator: (val) => val!.isEmpty ? 'Please enter description' : null,
-                                      //     onChanged: (val) => setState(() => description = val),
-                                      //     decoration: InputDecoration(
-                                      //       border: OutlineInputBorder(
-                                      //         borderRadius: BorderRadius.circular(10),
-                                      //       ),
-                                      //       labelText: 'Description',
-                                      //       hintText: 'Description of complaint',
-                                      //     ),
-                                      //   ),
-                                      // ),
+
                                       SizedBox(
                                         height: 30,
                                       ),
@@ -245,13 +234,6 @@ class _registerComplaintState extends State<registerComplaint> {
                             ),
                           ),
 
-                                      // Button("Submit", () async {
-                                      //   if(_formKey.currentState!.validate()){
-                                      //     print(selectedValue);
-                                      //     widget.functionchange(0);
-                                      //     await DataBaseComplain(uid: userdata.uid,bhawan: userData.bhawan).updateData(userData.name, userData.room_number, selectedValue!, description!, true);
-                                      //   }
-                                      // }),
                                     ],
                                   ),
                                 ),

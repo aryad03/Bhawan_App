@@ -28,10 +28,9 @@ class _LaundryUserPageState extends State<LaundryUserPage> {
     final userData = Provider.of<UserDataGlobal>(context);
     Size size = MediaQuery.of(context).size;
     return MaterialApp(
-          // theme: ThemeData(
-          //   primarySwatch: Colors.purple
-          // ),
-          home: Scaffold(
+      debugShowCheckedModeBanner: false,
+
+      home: Scaffold(
             resizeToAvoidBottomInset: false,
               body: Stack(
                 children: [
@@ -189,68 +188,7 @@ class _LaundryUserPageState extends State<LaundryUserPage> {
 
 
         );
-    // MaterialApp(
-    //   theme: ThemeData(
-    //     primarySwatch: Colors.purple
-    //   ),
-    //   home: Scaffold(
-    //     resizeToAvoidBottomInset: false,
-    //       body: Container(
-    //         child: SingleChildScrollView(
-    //            child: Column(
-    //               crossAxisAlignment: CrossAxisAlignment.stretch,
-    //               children: [
-    //                 SingleChildScrollView(
-    //                child: Form(
-    //                  key: _formKey,
-    //                  child: Column(
-    //                  children: [
-    //                    SizedBox(height: 30,),
-    //                    Row(
-    //                        mainAxisAlignment: MainAxisAlignment.center,
-    //                        children: [
-    //                      NoOfClothes(),
-    //                      SizedBox(width: 15.0,),
-    //                      Container(
-    //                        child: DropdownButton(
-    //                          value: _no_of_clothes_selected,
-    //                          icon: Icon(Icons.keyboard_arrow_down),
-    //                          items: no_of_clothes.map((String selected_value) {
-    //                            return DropdownMenuItem(
-    //                              value: selected_value,
-    //                              child: Text(selected_value),
-    //                            );
-    //                          }).toList(),
-    //                          onChanged: (String? selected_clothes) {
-    //                            setState(() {
-    //                              _no_of_clothes_selected = selected_clothes!;
-    //                            });
-    //                          },
-    //                        ),
-    //
-    //                      ),
-    //                    ]
-    //                    ),
-    //                    SizedBox(height: 23.0,),
-    //                    Button('Send Request', () async {
-    //                      if (_formKey.currentState!.validate() &&
-    //                          userdata!.inproccess == false) {
-    //                        // print(_roomnumber);
-    //                        await DataBaseLaundry(uid: userdata!.id, bhawan: userData.bhawan)
-    //                            .updateData(userData.name,
-    //                          userData.room_number ?? '', _no_of_clothes_selected ?? '', true,);
-    //                      }
-    //                    }),
-    //                  ],
-    //             ),
-    //                )
-    //         )
-    //     ]
-    //   ),
-    // ),
-    //       ),
-    //   ),
-    // );
+
   }
 }
 

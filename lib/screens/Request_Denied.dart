@@ -22,6 +22,8 @@ class _Entry_Denied_State extends State<Entry_Denied> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
+
       theme: ThemeData(
         scaffoldBackgroundColor: Color(0xFF73AEF5),
       ),

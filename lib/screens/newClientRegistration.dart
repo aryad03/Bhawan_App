@@ -43,9 +43,8 @@ class _RegistrationPage1State extends State<RegistrationPage1> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return _loading ? Loading() : MaterialApp(
-      // theme: ThemeData(
-      //   primarySwatch: kPrimaryColor,
-      // ),
+      debugShowCheckedModeBanner: false,
+
       home: Scaffold(
         body: Stack(
           children: [
