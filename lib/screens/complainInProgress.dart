@@ -42,6 +42,8 @@ class ComplaintsInProgress extends StatelessWidget {
     final usercomplain = Provider.of<List<UserComplain>?>(context);
     if(usercomplain!=null){
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
+
       home: Scaffold(
         body: Column(
           children: [
@@ -98,48 +100,7 @@ class ComplaintsInProgress extends StatelessWidget {
                   ),
                 ],
                 rows: _generateInProgress(usercomplain),
-                // rows: [
-                //   DataRow(
-                //     cells: [
-                //       DataCell(Text('Arshik')),
-                //       DataCell(Text('Mess')),
-                //       DataCell(Text('08/12/22')),
-                //       DataCell(Text('XYZ')),
-                //     ],
-                //   ),
-                //   DataRow(
-                //     cells: [
-                //       DataCell(Text('Arshik')),
-                //       DataCell(Text('Electrical')),
-                //       DataCell(Text('08/12/22')),
-                //       DataCell(Text('XYZ')),
-                //     ],
-                //   ),
-                //   DataRow(
-                //     cells: [
-                //       DataCell(Text('Arshik')),
-                //       DataCell(Text('Maintainance')),
-                //       DataCell(Text('08/12/22')),
-                //       DataCell(Text('XYZ')),
-                //     ],
-                //   ),
-                //   DataRow(
-                //     cells: [
-                //       DataCell(Text('Arshik')),
-                //       DataCell(Text('Electrical')),
-                //       DataCell(Text('08/12/22')),
-                //       DataCell(Text('XYZ')),
-                //     ],
-                //   ),
-                  // DataRow(cells: [
-                  //   DataCell(Text('Arshik')),
-                  // DataCell(Text('Mess')),
-                  // DataCell(Text('DD/MM/YYYY')),
-                  // DataCell(Text('XYZ')),
 
-                  // ],
-                  // ),
-                // ],
               ),
             ),
           ],

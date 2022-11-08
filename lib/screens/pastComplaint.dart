@@ -40,6 +40,8 @@ class PastComplaints extends StatelessWidget {
     final usercomplain = Provider.of<List<UserComplain>?>(context);
     if(usercomplain!=null){
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
+
       home: Scaffold(
         body: Column(
           children: [
@@ -89,57 +91,7 @@ class PastComplaints extends StatelessWidget {
                   ),
                 ],
                 rows: _generateInProgress(usercomplain),
-                // rows: [
-                //   DataRow(
-                //     cells: [
-                //       DataCell(Text('Arshik')),
-                //       DataCell(Text('Mess')),
-                //       DataCell(Text('08/12/22')),
-                //       DataCell(Text('XYZ')),
-                //       DataCell(Text('Solved')),
-                //       DataCell(Text('ABC')),
-                //     ],
-                //   ),
-                //   DataRow(
-                //     cells: [
-                //       DataCell(Text('Arshik')),
-                //       DataCell(Text('Electrical')),
-                //       DataCell(Text('08/12/22')),
-                //       DataCell(Text('XYZ')),
-                //       DataCell(Text('Solved')),
-                //       DataCell(Text('ABC')),
-                //     ],
-                //   ),
-                //   DataRow(
-                //     cells: [
-                //       DataCell(Text('Arshik')),
-                //       DataCell(Text('Maintainance')),
-                //       DataCell(Text('08/12/22')),
-                //       DataCell(Text('XYZ')),
-                //       DataCell(Text('Solved')),
-                //       DataCell(Text('ABC')),
-                //     ],
-                //   ),
-                //   DataRow(
-                //     cells: [
-                //       DataCell(Text('Arshik')),
-                //       DataCell(Text('Electrical')),
-                //       DataCell(Text('08/12/22')),
-                //       DataCell(Text('XYZ')),
-                //       DataCell(Text('Solved')),
-                //       DataCell(Text('ABC')),
-                //     ],
-                //   ),
-                  // DataRow(cells: [
-                  //   DataCell(Text('Arshik')),
-                  // DataCell(Text('Mess')),
-                  // DataCell(Text('DD/MM/YYYY')),
-                  // DataCell(Text('XYZ')),
-                  // DataCell(Text('Solved')),
-                  // DataCell(Text('ABC')),
-                  // ],
-                  // ),
-                // ],
+
               ),
             ),
           ],

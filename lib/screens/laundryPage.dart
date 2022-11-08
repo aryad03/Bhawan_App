@@ -41,9 +41,8 @@ class _TemplateStateUser extends State<TemplateUser> {
       if (userdata1.inproccess != false) currentIndex = 1;
 
       return MaterialApp(
-        // theme: ThemeData(
-        //   primarySwatch: Colors.purple,
-        // ),
+        debugShowCheckedModeBanner: false,
+
         home: Scaffold(
           backgroundColor: Color(0xFF73AEF5),
           appBar: AppBar(

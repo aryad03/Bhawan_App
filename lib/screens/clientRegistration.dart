@@ -44,6 +44,8 @@ class _RegistrationPageState extends State<RegistrationPage> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return _loading ? Loading() : MaterialApp(
+      debugShowCheckedModeBanner: false,
+
       theme: ThemeData(
         primarySwatch: kPrimaryColor,
       ),
@@ -240,57 +242,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                               obscureText: true,
                             ),
                           ),
-                          // Container(
-                          //   padding: EdgeInsets.all(15.0),
-                          //   child: DropdownButtonFormField2(
-                          //     decoration: InputDecoration(
-                          //       isDense: true,
-                          //       contentPadding: EdgeInsets.zero,
-                          //       border: OutlineInputBorder(
-                          //         borderRadius: BorderRadius.circular(10),
-                          //       ),
-                          //     ),
-                          //     isExpanded: true,
-                          //     hint: const Text(
-                          //       'Select Your role',),
-                          //     icon: const Icon(
-                          //       Icons.arrow_drop_down,
-                          //       color: Colors.black45,
-                          //     ),
-                          //     iconSize: 30,
-                          //     buttonHeight: 60,
-                          //     buttonPadding: const EdgeInsets.only(left: 15, right: 15),
-                          //     dropdownDecoration: BoxDecoration(
-                          //       borderRadius: BorderRadius.circular(10),
-                          //     ),
-                          //     items: type
-                          //         .map((itema) =>
-                          //         DropdownMenuItem<String>(
-                          //           value: itema,
-                          //           child: Text(
-                          //             itema,
-                          //             style: const TextStyle(
-                          //               fontSize: 14,
-                          //             ),
-                          //           ),
-                          //         ))
-                          //         .toList(),
-                          //     validator: (valued) {
-                          //       if (valued == null) {
-                          //         return 'Please select your role.';
-                          //       }
-                          //     },
-                          //     onChanged: (valued) {
-                          //       //Do something when changing the item if you want.
-                          //       setState(() {
-                          //         _account = valued! as String;
-                          //       });
-                          //     },
-                          //     onSaved: (valued) {
-                          //       accountType= valued.toString();
-                          //     },
-                          //   ),
-                          // ),
+
                           Container(
                             width: size.width * 0.3,
                             margin: EdgeInsets.all(0),

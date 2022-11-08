@@ -24,6 +24,8 @@ class _otpState extends State<otp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
+
       theme: ThemeData(
         primarySwatch: kPrimaryColor,
       ),

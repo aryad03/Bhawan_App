@@ -30,6 +30,8 @@ class StatusEntryExit extends StatelessWidget {
             // print(userentry!.request);
             sres=userentry!.request?s1:s;
             return MaterialApp(
+              debugShowCheckedModeBanner: false,
+
               theme: ThemeData(
               ),
               home: Scaffold(

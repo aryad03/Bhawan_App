@@ -29,9 +29,8 @@ class _LoginPage1State extends State<LoginPage1> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return _loading ? Loading() : MaterialApp(
-      // theme: ThemeData(
-      //   primarySwatch: kPrimaryColor,
-      // ),
+      debugShowCheckedModeBanner: false,
+
       home: Scaffold(
         body: Stack(
           children: [
@@ -252,49 +251,6 @@ class _LoginPage1State extends State<LoginPage1> {
                           ],
                         ),
                       )
-                      // Container(
-                      //   // padding: EdgeInsets.symmetric(vertical: 25.0),
-                      //   width: double.infinity,
-                      //   // alignment: Alignment.centerRight,
-                      //   child: ElevatedButton(
-                      //     style: ElevatedButton.styleFrom(
-                      //       backgroundColor: Colors.white,
-                      //       // padding: EdgeInsets.symmetric(horizontal: 50, vertical: 20),
-                      //     ),
-                      //     onPressed: () async {
-                      //       widget.toggle(1);
-                      //     },
-                      //     child: Text(
-                      //       'Register as Student',
-                      //       style: TextStyle(
-                      //         color: Color(0XFF61A4F1),
-                      //       ),
-                      //     ),
-                      //   ),
-                      // ),
-                      // // SizedBox(
-                      // //   height: 10.0,
-                      // // ),
-                      // Container(
-                      //   // padding: EdgeInsets.symmetric(vertical: 25.0),
-                      //   width: double.infinity,
-                      //   // alignment: Alignment.centerRight,
-                      //   child: ElevatedButton(
-                      //     style: ElevatedButton.styleFrom(
-                      //       backgroundColor: Colors.white,
-                      //       // padding: EdgeInsets.symmetric(horizontal: 50, vertical: 20),
-                      //     ),
-                      //     onPressed: () async {
-                      //       widget.toggle(2);
-                      //     },
-                      //     child: Text(
-                      //       'Register as Admin',
-                      //       style: TextStyle(
-                      //         color: Color(0XFF61A4F1),
-                      //       ),
-                      //     ),
-                      //   ),
-                      // ),
 
 
                     ],

@@ -29,6 +29,8 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return _loading ? Loading() : MaterialApp(
+      debugShowCheckedModeBanner: false,
+
       theme: ThemeData(
         primarySwatch: kPrimaryColor,
       ),

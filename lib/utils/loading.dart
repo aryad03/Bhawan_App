@@ -7,6 +7,8 @@ class Loading extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
+
       home: Container(
         height: double.infinity,
         width: double.infinity,
