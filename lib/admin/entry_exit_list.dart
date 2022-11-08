@@ -34,15 +34,17 @@ class _EntryExitAdminListState extends State<EntryExitAdminList> {
               style: TextStyle(
                 fontSize: 20.0,
                 fontWeight: FontWeight.w500,
+                color: Colors.blue[800],
               ),
             ),
             // SizedBox(width: 50.0,),
             // Spacer(),
             Text(
-              'Room Number: ${widget.enrollment_number}',
+              'Enrollment Number: ${widget.enrollment_number}',
               style: TextStyle(
                 fontSize: 20.0,
                 fontWeight: FontWeight.w500,
+                color: Colors.blue[800],
               ),
             ),
             // Spacer(),

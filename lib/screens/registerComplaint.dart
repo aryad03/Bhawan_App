@@ -113,7 +113,7 @@ class _registerComplaintState extends State<registerComplaint> {
                                           border: InputBorder.none,
                                           // contentPadding: EdgeInsets.only(top:14.0),
                                           prefixIcon: Icon(
-                                            Icons.other_houses,
+                                            Icons.admin_panel_settings,
                                             color: Colors.white,
                                           ),
                                           hintText: 'Enter your complain department',
@@ -188,7 +188,7 @@ class _registerComplaintState extends State<registerComplaint> {
                                     border: InputBorder.none,
                                     // contentPadding: EdgeInsets.all(14.0),
                                     prefixIcon: Icon(
-                                      Icons.person,
+                                      Icons.text_fields,
                                       color: Colors.white,
                                     ),
                                     hintText: 'Enter your description',

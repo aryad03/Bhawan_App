@@ -80,6 +80,20 @@ class _LaundryUserPageState extends State<LaundryUserPage> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
+                                'Name : ${userData.name}',
+                                style: kLabelStyle,
+                              ),
+                              SizedBox(
+                                height: 10.0,
+                              ),
+                              Text(
+                                'Room Number : ${userData.room_number}',
+                                style: kLabelStyle,
+                              ),
+                              SizedBox(
+                                height: 30.0,
+                              ),
+                              Text(
                                 'Number of clothes',
                                 style: kLabelStyle,
                               ),

@@ -29,15 +29,35 @@ class StatusEntryExit extends StatelessWidget {
             UserEntryExitStatus? userentry = snapshot.data;
             // print(userentry!.request);
             sres=userentry!.request?s1:s;
-            return MaterialApp(
-              debugShowCheckedModeBanner: false,
-
-              theme: ThemeData(
-              ),
-              home: Scaffold(
-                body: Center(
-                  child: Text(sres),
+            return Container(
+              height: double.infinity,
+              width: double.infinity,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [
+                    Color(0xFF73AEF5),
+                    Color(0XFF61A4F1),
+                    Color(0xFF478DE0 ),
+                    Color(0xFF398AE5),
+                  ],
+                  stops: [0.1, 0.4, 0.7, 0.9],
                 ),
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    sres,
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontFamily: 'OpenSans',
+                      fontSize: 30.0,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  )
+                ],
               ),
             );
           }
